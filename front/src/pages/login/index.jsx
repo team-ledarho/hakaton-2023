@@ -1,3 +1,9 @@
+import { Layout } from "@components/layout"
+
 export const Login = () => {
-    return <h1>login</h1>
+    return (
+        <Layout>
+            <h1>login</h1>
+        </Layout>
+    )
 }

@@ -1,3 +1,9 @@
+import { Layout } from "@components/layout"
+
 export const Register = () => {
-    return <h1>Register</h1>
+    return (
+        <Layout>
+            <h1>Register</h1>
+        </Layout>
+    )
 }

@@ -19,6 +19,8 @@ export default defineConfig({
       "@routes": "/src/routes",
       "@services": "/src/services",
       "@utils": "/src/utils",
+      "@pages": "/src/pages",
+      "@paths": "/src/paths"
     },
   },
   test: {

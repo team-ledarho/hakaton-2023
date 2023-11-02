@@ -38,6 +38,7 @@ export const Form = ({ type }) => {
       (await type) === "login"
         ? onLogin(data).unwrap()
         : onRegister(data).unwrap();
+      reset();
       navigate(paths.home);
     } catch (error) {
       alert("Прикрутить тостер!");

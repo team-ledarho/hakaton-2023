@@ -28,13 +28,17 @@ export const Form = ({ type }) => {
     mode: "onBlur",
   });
 
+  const isUpperCase = (value) => {
+    // Функция для проверки, содержит ли строка символы в верхнем регистре
+    return /[A-Z]/.test(value);
+  };
+
   const onSubmit = async (data) => {
     try {
-      if (user.email && user.password && user.username) {
-        (await type) === "login"
-          ? onLogin(data).unwrap()
-          : onRegister(data).unwrap();
-      }
+      (await type) === "login"
+        ? onLogin(data).unwrap()
+        : onRegister(data).unwrap();
+      navigate(paths.home);
     } catch (error) {
       alert("Прикрутить тостер!");
     }
@@ -65,6 +69,9 @@ export const Form = ({ type }) => {
                     value: 4,
                     message: "Минимум 4 символов",
                   },
+                  validate: (value) =>
+                    !isUpperCase(value) ||
+                    "Только символы в верхнем регистре разрешены",
                 })}
                 name="identifier"
                 onChange={onChange}
@@ -161,6 +168,9 @@ export const Form = ({ type }) => {
                     value: 5,
                     message: "Минимум 5 символов",
                   },
+                  validate: (value) =>
+                    !isUpperCase(value) ||
+                    "Только символы в верхнем регистре разрешены",
                 })}
                 name="email"
                 onChange={onChange}

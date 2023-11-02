@@ -3,7 +3,8 @@ import { fetchBaseQuery, createApi, retry } from "@reduxjs/toolkit/query/react";
 const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:1337/api",
   prepareHeaders: (headers, { getState }) => {
-    const jwt = getState().authReducer?.jwt || localStorage.getItem("jwt");
+    const jwt =
+      getState().authReducer?.user?.jwt || localStorage.getItem("jwt");
 
     if (jwt && jwt !== null) {
       headers.set("authorization", `Bearer ${jwt}`);

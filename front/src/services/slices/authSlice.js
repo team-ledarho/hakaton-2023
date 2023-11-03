@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { authApi } from "../auth/auth";
+import { authApi } from "../auth/authQuery";
 
 const initialState = {
   user: null,
@@ -22,7 +22,11 @@ export const authSlice = createSlice({
           state.user = action.payload;
           state.isAuthenticated = true;
         },
-      );
+      )
+      .addMatcher(authApi.endpoints.current.matchFulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isAuthenticated = true;
+      });
   },
 });
 

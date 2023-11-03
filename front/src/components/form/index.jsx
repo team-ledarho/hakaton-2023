@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import {
   useLoginMutation,
   useRegisterMutation,
-} from "../../services/auth/auth";
+} from "../../services/auth/authQuery";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { paths } from "../../paths";
@@ -36,10 +36,18 @@ export const Form = ({ type }) => {
   const onSubmit = async (data) => {
     try {
       (await type) === "login"
-        ? onLogin(data).unwrap()
-        : onRegister(data).unwrap();
-      reset();
-      navigate(paths.home);
+        ? onLogin(data)
+            .unwrap()
+            .then(() => {
+              reset();
+              navigate(paths.home);
+            })
+        : onRegister(data)
+            .unwrap()
+            .then(() => {
+              reset();
+              navigate(paths.home);
+            });
     } catch (error) {
       alert("Прикрутить тостер!");
     }

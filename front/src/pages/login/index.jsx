@@ -1,6 +1,5 @@
 import { Layout } from "@components/layout";
 import { Form } from "../../components/form";
-import { useLoginMutation } from "../../services/auth/auth";
 
 export const Login = () => {
   return (

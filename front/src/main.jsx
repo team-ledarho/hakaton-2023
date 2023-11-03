@@ -1,18 +1,21 @@
-import './index.css'
+import "./index.css";
 
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import {Provider} from "react-redux"
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
 
-import { RouterProvider } from 'react-router-dom';
-import { router } from './routes';
-import { store } from './store/store';
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
+import { store } from "./store/store";
+import { Auth } from "./services/feature/auth.feature";
 
-const container = document.querySelector('#root');
+const container = document.querySelector("#root");
 const root = createRoot(container);
 
 root.render(
-    <Provider store={store}>
-        <RouterProvider router={router}/>
-    </Provider>
+  <Provider store={store}>
+    <Auth>
+      <RouterProvider router={router} />
+    </Auth>
+  </Provider>,
 );

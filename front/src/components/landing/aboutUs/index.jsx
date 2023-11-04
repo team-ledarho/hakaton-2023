@@ -32,8 +32,8 @@ const AboutUs = () => {
       <button
         className="text-center absolute z-30 flex justify-center items-center"
       >
-                <p className='text-white absolute top-auto bottom-auto'>Посмотреть</p>
-        <WatchStar class="h-[100px] w-[100px] md:h-[170px] md:w-[170px]" />
+                <p className='text-white absolute top-auto bottom-auto z-20'>Посмотреть</p>
+        <WatchStar className="h-[100px] w-[100px] md:h-[170px] md:w-[170px] spin z-10" />
       </button>
       {/* <iframe
         className="w-full aspect-video lg:rounded-bl-[15rem]

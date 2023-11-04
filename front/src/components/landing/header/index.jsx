@@ -1,7 +1,11 @@
 import { useState } from 'react';
+import SelectLanguage from '@components/language'
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const { t } = useTranslation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -50,7 +54,7 @@ const Header = () => {
   />
 </svg>
               <span className="font-medium text-2xl text-green-600 hidden md:inline">
-                Зарзар
+                {t('Zarzar')}
               </span>
             </a>
           </nav>
@@ -71,8 +75,9 @@ const Header = () => {
           </nav>
 
           <nav className="basis-1/2 md:basis-1/4 text-right">
+            <SelectLanguage />
             <a
-              className="px-6 py-2 md:px-8 md:py-3 rounded-md bg-green-600 text-white text-xs md:text-base"
+              className="ml-2 px-6 py-2 md:px-8 md:py-3 rounded-md bg-green-600 text-white text-xs md:text-base"
               href="/register"
             >
               Аккаунт
@@ -84,7 +89,7 @@ const Header = () => {
             className="md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-secondary-500 rounded-lg"
             aria-expanded={isMenuOpen}
           >
-            <span className="sr-only">Open main menu</span>
+            <span className="sr-only">Открыть меню</span>
             <svg
               className="w-5 h-5"
               aria-hidden="true"

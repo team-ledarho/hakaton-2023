@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import { useForm } from "react-hook-form";
 import {
   useLoginMutation,
@@ -7,12 +7,13 @@ import {
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { paths } from "../../paths";
+import Header from "@components/landing/header";
 
 const initialUserLogin = { password: "", identifier: "" };
 const initialUserRegister = { password: "", email: "", username: "" };
 
 export const Form = ({ type }) => {
-  const [user, setUser] = React.useState(
+  const [user, setUser] = useState(
     type === "login" ? initialUserLogin : initialUserRegister,
   );
   const [onLogin] = useLoginMutation();
@@ -62,14 +63,16 @@ export const Form = ({ type }) => {
   };
 
   return (
-    <div className="m-7">
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <>
+    <Header />
+<main className="min-h-[70vh] max-w-screen-xl m-auto pt-10 px-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg m-auto flex flex-col gap-4 mt-2">
         {type === "login" ? (
           <>
-            <div className="mb-6">
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-400">
-                Email
-              </label>
+            <h1 className="text-4xl md:text-6xl text-center m-auto font-bold">Вход</h1>
+            <p className="text-center text-text-main mt-6 max-w-3xl m-auto">
+            После входа в систему вы соглашаетесь с нашими Условиями обслуживания и Политикой конфиденциальности. И становитесь ближе к новым эмоциям ✨
+            </p>
               <input
                 type="email"
                 {...register("identifier", {
@@ -86,19 +89,16 @@ export const Form = ({ type }) => {
                 onChange={onChange}
                 id="identifier"
                 value={user.identifier}
-                placeholder="expample@gmail.com"
-                className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                placeholder="Ваш электронный адрес"
+                className="block border my-2 px-5 py-4 rounded-md border-secondary-200 w-full"
               />
-              <div className="text-red-500 text-[14px] h-1">
                 {errors?.identifier && (
-                  <p>{errors?.identifier?.message || "ERROR!"}</p>
+                        <div
+                        className="px-5 py-3 border border-red-200 bg-red-100 rounded-md text-red-800"
+                      >
+                        {errors?.identifier?.message || "ERROR!"}
+                      </div>
                 )}
-              </div>
-            </div>
-            <div className="mb-6">
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-400">
-                Password
-              </label>
               <input
                 type="password"
                 {...register("password", {
@@ -112,37 +112,41 @@ export const Form = ({ type }) => {
                 name="password"
                 onChange={onChange}
                 id="password"
-                placeholder="password"
-                className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                placeholder="Ваш пароль"
+                className="block border mt-2 mb-3 px-5 py-4 rounded-md border-secondary-200 w-full"
               />
-              <div className="text-red-500 text-[14px] h-1">
                 {errors?.password && (
+                                <div
+                                className="px-5 py-3 border border-red-200 bg-red-100 rounded-md text-red-800"
+                              >
                   <p>{errors?.password?.message || "ERROR!"}</p>
+                  </div>
                 )}
-              </div>
-            </div>
-
-            <div className="mb-6">
+          
               <button
                 type="submit"
-                className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 hover:outline-none"
+                className="bg-brand-green disabled:bg-gray-100 font-semibold px-10 py-3 text-white
+                hover:bg-primary-400 disabled:text-text-main rounded-full w-fit mx-auto text-center"
               >
-                Send Message
+                Войти
               </button>
-            </div>
-            <p
+            <div className="text-lg decoration-primary-200 hover:decoration-primary-300 decoration-2 my-6 block text-center">
+            Нет аккаунта?
+            <button
               onClick={() => navigate(paths.register)}
-              className="text-base text-center text-gray-400 cursor-pointer"
+              className="underline
+              mt-8 text-green-600 ml-2"
             >
-              Нет аккаунта?
-            </p>
+              Зарегистрироваться!
+            </button>
+            </div>
           </>
         ) : (
           <>
-            <div className="mb-6">
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-400">
-                Username
-              </label>
+          <h1 className="text-4xl md:text-6xl text-center m-auto font-bold">Регистрация</h1>
+          <p className="text-center text-text-main mt-6 max-w-3xl m-auto mb-10">
+          При регистрации вы соглашаетесь с нашими Условиями обслуживания и Политикой конфиденциальности. И становитесь ближе к новым эмоциям ✨
+          </p>
               <input
                 type="text"
                 {...register("username", {
@@ -156,19 +160,16 @@ export const Form = ({ type }) => {
                 onChange={onChange}
                 id="username"
                 value={user.username}
-                placeholder="username"
-                className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                placeholder="Ваше имя и фамилие"
+                className="block border my-2 px-5 py-4 rounded-md border-secondary-200 w-full"
               />
-              <div className="text-red-500 text-[14px] h-1">
                 {errors?.username && (
-                  <p>{errors?.username?.message || "ERROR!"}</p>
+                                   <div
+                                   className="px-5 py-3 border border-red-200 bg-red-100 rounded-md text-red-800"
+                                 >
+                                   {errors?.username?.message || "ERROR!"}
+                                 </div>
                 )}
-              </div>
-            </div>
-            <div className="mb-6">
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-400">
-                Email
-              </label>
               <input
                 type="email"
                 {...register("email", {
@@ -185,17 +186,17 @@ export const Form = ({ type }) => {
                 onChange={onChange}
                 id="email"
                 value={user.email}
-                placeholder="expample@gmail.com"
-                className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                placeholder="Ваш электронный адрес"
+                className="block border my-2 px-5 py-4 rounded-md border-secondary-200 w-full"
               />
-              <div className="text-red-500 text-[14px] h-1">
-                {errors?.email && <p>{errors?.email?.message || "ERROR!"}</p>}
-              </div>
-            </div>
-            <div className="mb-6">
-              <label className="block mb-2 text-sm text-gray-600 dark:text-gray-400">
-                Password
-              </label>
+                                    {errors?.email && (
+                                     <div
+                                     className="px-5 py-3 border border-red-200 bg-red-100 rounded-md text-red-800"
+                                   >
+                                    <p>{errors?.email?.message || "ERROR!"}</p>
+                                 </div>
+                                    )}
+
               <input
                 type="password"
                 {...register("password", {
@@ -209,34 +210,40 @@ export const Form = ({ type }) => {
                 name="password"
                 onChange={onChange}
                 id="password"
-                placeholder="password"
-                className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                placeholder="Ваш пароль"
+                className="block border mt-2 mb-3 px-5 py-4 rounded-md border-secondary-200 w-full"
               />
-              <div className="text-red-500 text-[14px] h-1">
+              
                 {errors?.password && (
+                                <div
+                                className="px-5 py-3 border border-red-200 bg-red-100 rounded-md text-red-800"
+                              >
                   <p>{errors?.password?.message || "ERROR!"}</p>
+                  </div>
                 )}
-              </div>
-            </div>
 
-            <div className="mb-6">
               <button
                 type="submit"
-                className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 hover:outline-none"
+                className="bg-brand-green disabled:bg-gray-100 font-semibold px-10 py-3 text-white
+                hover:bg-primary-400 disabled:text-text-main rounded-full w-fit mx-auto text-center"
               >
-                Send Message
+                Зарегистрироваться
               </button>
-            </div>
-            <p
+            <div className="text-lg decoration-primary-200 hover:decoration-primary-300 decoration-2 my-6 block text-center">
+            Уже есть аккаунт?
+            <button
               onClick={() => navigate(paths.login)}
-              className="text-base text-center text-gray-400 cursor-pointer"
+              className="underline
+              mt-8 text-green-600 ml-2"
             >
-              Есть аккаунт?
-            </p>
+              Войти!
+            </button>
+            </div>
           </>
         )}
       </form>
-    </div>
+    </main>
+    </>
   );
 };
 

@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 
 const SelectLanguage = () => {
   const { changeLanguage } = useLanguage();
-  const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('localelang_zarzar') || 'ru'); // Получаем значение из localStorage или устанавливаем значение по умолчанию
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem('localelang_zarzar') || 'ru',
+  ); // Получаем значение из localStorage или устанавливаем значение по умолчанию
 
   const handleLanguageChange = (event) => {
     const selectedValue = event.target.value;
@@ -20,14 +22,14 @@ const SelectLanguage = () => {
   }, []);
 
   return (
-      <select
-        className="bg-green-600 border border-gray-200 py-2 rounded-md shadow-sm text-white font-semibold transition duration-250 hover:border-gray-500 hover:shadow-md hover:text-opacity-80 active:text-opacity-80"
-        onChange={handleLanguageChange}
-        value={selectedLanguage} // Устанавливаем выбранное значение
-      >
-        <option value="ru">🇷🇺 РУ</option>
-        <option value="en">🇬🇧 EN</option>
-      </select>
+    <select
+      className="duration-250 rounded-md border border-gray-200 bg-green-600 font-semibold text-white shadow-sm transition hover:border-gray-500 hover:text-opacity-80 hover:shadow-md active:text-opacity-80 p-1 md:p-2 text-sm md:text-base"
+      onChange={handleLanguageChange}
+      value={selectedLanguage} // Устанавливаем выбранное значение
+    >
+      <option value="ru">🇷🇺 РУ</option>
+      <option value="en">🇬🇧 EN</option>
+    </select>
   );
 };
 

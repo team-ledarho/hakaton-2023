@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "importHelpers": true,
+    "typeRoots": ["node_modules/@types/"],
+    "types": ["qs", "gsap"],
+    "allowJs": true,
+    "checkJs": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "paths": {
+      "@": ["/src"],
+      "@components": ["/src/components"],
+      "@hooks": ["/src/hooks"],
+      "@routes": ["/src/routes"],
+      "@services": ["/src/services"],
+      "@utils": ["/src/utils"],
+      "@pages": ["/src/pages"],
+      "@paths": ["/src/paths"]
+    }
+  }
+}

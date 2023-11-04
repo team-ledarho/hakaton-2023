@@ -9,7 +9,10 @@
     "start": "vite",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "lint": "prettier --check . && eslint src --ext .js,.ts,tsx,jsx",
+    "lint:fix": "prettier --check . && eslint --ext .js,.ts,.jsx . --fix",
+    "format": "prettier --write . --config prettier.config.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",

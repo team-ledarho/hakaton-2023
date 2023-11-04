@@ -1,20 +1,20 @@
 export const Statistic = () => {
   return (
-    <div className="flex-1 bg-white rounded-lg shadow-xl mt-4 p-8">
-      <h4 className="text-xl text-gray-900 font-bold">Cтатистика</h4>
+    <div className="mt-4 flex-1 rounded-lg bg-white p-8 shadow-xl">
+      <h4 className="text-xl font-bold text-gray-900">Cтатистика</h4>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4">
-        <div className="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+      <div className="mt-4 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <div className="rounded-lg border border-gray-300 bg-gray-100 px-6 py-6 shadow-xl">
           <div className="flex items-center justify-between">
-            <span className="font-bold text-sm text-indigo-600">Вложения</span>
-            <span className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">
+            <span className="text-sm font-bold text-indigo-600">Вложения</span>
+            <span className="cursor-default rounded-lg bg-gray-200 px-2 py-1 text-xs text-gray-500 transition duration-200 hover:bg-gray-500 hover:text-gray-200">
               7 days
             </span>
           </div>
-          <div className="flex items-center justify-between mt-6">
+          <div className="mt-6 flex items-center justify-between">
             <div>
               <svg
-                className="w-12 h-12 p-2.5 bg-indigo-400 bg-opacity-20 rounded-full text-indigo-600 border border-indigo-600"
+                className="h-12 w-12 rounded-full border border-indigo-600 bg-indigo-400 bg-opacity-20 p-2.5 text-indigo-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -30,10 +30,10 @@ export const Statistic = () => {
             </div>
             <div className="flex flex-col">
               <div className="flex items-end">
-                <span className="text-2xl 2xl:text-3xl font-bold">$8,141</span>
-                <div className="flex items-center ml-2 mb-1">
+                <span className="text-2xl font-bold 2xl:text-3xl">$8,141</span>
+                <div className="mb-1 ml-2 flex items-center">
                   <svg
-                    className="w-5 h-5 text-green-500"
+                    className="h-5 w-5 text-green-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -46,7 +46,7 @@ export const Statistic = () => {
                       d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
                     ></path>
                   </svg>
-                  <span className="font-bold text-sm text-gray-500 ml-0.5">
+                  <span className="ml-0.5 text-sm font-bold text-gray-500">
                     3%
                   </span>
                 </div>
@@ -54,19 +54,19 @@ export const Statistic = () => {
             </div>
           </div>
         </div>
-        <div className="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+        <div className="rounded-lg border border-gray-300 bg-gray-100 px-6 py-6 shadow-xl">
           <div className="flex items-center justify-between">
-            <span className="font-bold text-sm text-green-600">
+            <span className="text-sm font-bold text-green-600">
               Новые тусовки
             </span>
-            <span className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">
+            <span className="cursor-default rounded-lg bg-gray-200 px-2 py-1 text-xs text-gray-500 transition duration-200 hover:bg-gray-500 hover:text-gray-200">
               7 days
             </span>
           </div>
-          <div className="flex items-center justify-between mt-6">
+          <div className="mt-6 flex items-center justify-between">
             <div>
               <svg
-                className="w-12 h-12 p-2.5 bg-green-400 bg-opacity-20 rounded-full text-green-600 border border-green-600"
+                className="h-12 w-12 rounded-full border border-green-600 bg-green-400 bg-opacity-20 p-2.5 text-green-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -82,10 +82,10 @@ export const Statistic = () => {
             </div>
             <div className="flex flex-col">
               <div className="flex items-end">
-                <span className="text-2xl 2xl:text-3xl font-bold">217</span>
-                <div className="flex items-center ml-2 mb-1">
+                <span className="text-2xl font-bold 2xl:text-3xl">217</span>
+                <div className="mb-1 ml-2 flex items-center">
                   <svg
-                    className="w-5 h-5 text-green-500"
+                    className="h-5 w-5 text-green-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -98,7 +98,7 @@ export const Statistic = () => {
                       d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
                     ></path>
                   </svg>
-                  <span className="font-bold text-sm text-gray-500 ml-0.5">
+                  <span className="ml-0.5 text-sm font-bold text-gray-500">
                     5%
                   </span>
                 </div>
@@ -106,17 +106,17 @@ export const Statistic = () => {
             </div>
           </div>
         </div>
-        <div className="px-6 py-6 bg-gray-100 border border-gray-300 rounded-lg shadow-xl">
+        <div className="rounded-lg border border-gray-300 bg-gray-100 px-6 py-6 shadow-xl">
           <div className="flex items-center justify-between">
-            <span className="font-bold text-sm text-blue-600">Подписчики</span>
-            <span className="text-xs bg-gray-200 hover:bg-gray-500 text-gray-500 hover:text-gray-200 px-2 py-1 rounded-lg transition duration-200 cursor-default">
+            <span className="text-sm font-bold text-blue-600">Подписчики</span>
+            <span className="cursor-default rounded-lg bg-gray-200 px-2 py-1 text-xs text-gray-500 transition duration-200 hover:bg-gray-500 hover:text-gray-200">
               7 days
             </span>
           </div>
-          <div className="flex items-center justify-between mt-6">
+          <div className="mt-6 flex items-center justify-between">
             <div>
               <svg
-                className="w-12 h-12 p-2.5 bg-blue-400 bg-opacity-20 rounded-full text-blue-600 border border-blue-600"
+                className="h-12 w-12 rounded-full border border-blue-600 bg-blue-400 bg-opacity-20 p-2.5 text-blue-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -132,10 +132,10 @@ export const Statistic = () => {
             </div>
             <div className="flex flex-col">
               <div className="flex items-end">
-                <span className="text-2xl 2xl:text-3xl font-bold">54</span>
-                <div className="flex items-center ml-2 mb-1">
+                <span className="text-2xl font-bold 2xl:text-3xl">54</span>
+                <div className="mb-1 ml-2 flex items-center">
                   <svg
-                    className="w-5 h-5 text-green-500"
+                    className="h-5 w-5 text-green-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -148,7 +148,7 @@ export const Statistic = () => {
                       d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
                     ></path>
                   </svg>
-                  <span className="font-bold text-sm text-gray-500 ml-0.5">
+                  <span className="ml-0.5 text-sm font-bold text-gray-500">
                     7%
                   </span>
                 </div>

@@ -1,10 +1,10 @@
-import { Layout } from "@components/layout";
-import { Form } from "../../components/form";
+import { Layout } from '@components/layout';
+import { Form } from '../../components/form';
 
 export const Login = () => {
   return (
     <Layout>
-            <Form type="login" />
+      <Form type="login" />
     </Layout>
   );
 };

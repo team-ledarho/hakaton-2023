@@ -1,5 +1,5 @@
-import { Layout } from "@components/layout";
-import { Form } from "../../components/form";
+import { Layout } from '@components/layout';
+import { Form } from '../../components/form';
 
 export const Register = () => {
   return (

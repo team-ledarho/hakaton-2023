@@ -362,6 +362,56 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiEventsEvents extends Schema.CollectionType {
+  collectionName: 'events_api';
+  info: {
+    singularName: 'events';
+    pluralName: 'events-api';
+    displayName: 'events';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 150;
+      }> &
+      Attribute.DefaultTo<'\u0411\u0435\u0437\u044B\u043C\u044F\u043D\u043D\u043E\u0435 \u043C\u0435\u0440\u043E\u043F\u0440\u0438\u044F\u0442\u0438\u0435'>;
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 50;
+      }>;
+    isPublic: Attribute.Boolean & Attribute.DefaultTo<false>;
+    slug: Attribute.UID<'api::events.events', 'name'>;
+    format: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'\u041C\u0435\u0440\u043E\u043F\u0440\u0438\u044F\u0442\u0438\u0435'>;
+    location: Attribute.String & Attribute.Required;
+    location_iframe: Attribute.String;
+    start_date: Attribute.DateTime;
+    end_data: Attribute.DateTime;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::events.events',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::events.events',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -619,6 +669,9 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Required &
       Attribute.DefaultTo<false>;
     avatar: Attribute.Media;
+    link_telegram: Attribute.String;
+    link_vk: Attribute.String;
+    birthday: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -690,6 +743,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::events.events': ApiEventsEvents;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;

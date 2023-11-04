@@ -1,31 +1,31 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 export const Banner = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white rounded-lg shadow-xl pb-8">
+    <div className="rounded-lg bg-white pb-8 shadow-xl">
       <div
         x-data="{ openSettings: false }"
         className="absolute right-12 mt-4 rounded"
       ></div>
-      <div className="w-full h-[250px]">
+      <div className="h-[250px] w-full">
         <img
           src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg"
-          className="w-full h-full rounded-tl-lg rounded-tr-lg"
+          className="h-full w-full rounded-tl-lg rounded-tr-lg"
         />
       </div>
-      <div className="flex flex-col items-center -mt-20">
+      <div className="-mt-20 flex flex-col items-center">
         <img
           src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
-          className="w-40 border-4 border-white rounded-full"
+          className="w-40 rounded-full border-4 border-white"
         />
-        <div className="flex items-center space-x-2 mt-2">
+        <div className="mt-2 flex items-center space-x-2">
           <p className="text-2xl">Хаджиев Минкаил</p>
-          <span className="bg-blue-500 rounded-full p-1" title="Verified">
+          <span className="rounded-full bg-blue-500 p-1" title="Verified">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="text-gray-100 h-2.5 w-2.5"
+              className="h-2.5 w-2.5 text-gray-100"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -42,11 +42,11 @@ export const Banner = () => {
         <p className="text-gray-700">Frontend React Developer</p>
         <p className="text-sm text-gray-500">Russia, Moscow</p>
       </div>
-      <div className="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">
-        <div className="flex items-center space-x-4 mt-2">
+      <div className="mt-2 flex flex-1 flex-col items-center justify-end px-8 lg:items-end">
+        <div className="mt-2 flex items-center space-x-4">
           <button
             onClick={() => navigate(`settings`)}
-            className="flex items-center bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100"
+            className="flex items-center space-x-2 rounded bg-blue-600 px-4 py-2 text-sm text-gray-100 transition duration-100 hover:bg-blue-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ export const Banner = () => {
           </button>
           <button
             onClick={() => navigate(`message`)}
-            className="flex items-center bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100"
+            className="flex items-center space-x-2 rounded bg-blue-600 px-4 py-2 text-sm text-gray-100 transition duration-100 hover:bg-blue-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

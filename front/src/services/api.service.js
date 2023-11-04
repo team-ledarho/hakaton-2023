@@ -1,13 +1,13 @@
-import { fetchBaseQuery, createApi, retry } from "@reduxjs/toolkit/query/react";
+import { fetchBaseQuery, createApi, retry } from '@reduxjs/toolkit/query/react';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:1337/api",
+  baseUrl: 'http://localhost:1337/api',
   prepareHeaders: (headers, { getState }) => {
     const jwt =
-      getState().authReducer?.user?.jwt || localStorage.getItem("jwt");
+      getState().authReducer?.user?.jwt || localStorage.getItem('jwt');
 
     if (jwt && jwt !== null) {
-      headers.set("authorization", `Bearer ${jwt}`);
+      headers.set('authorization', `Bearer ${jwt}`);
     }
   },
 });
@@ -15,7 +15,7 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithRetry = retry(baseQuery, { maxRetries: 1 });
 
 export const api = createApi({
-  reducerPath: "splitApi",
+  reducerPath: 'splitApi',
   baseQuery: baseQueryWithRetry,
   refetchOnMountOrArgChange: true,
   endpoints: () => ({}),

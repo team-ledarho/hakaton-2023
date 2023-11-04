@@ -1,5 +1,5 @@
-import { createListenerMiddleware } from "@reduxjs/toolkit";
-import { authApi } from "../services/auth/authQuery";
+import { createListenerMiddleware } from '@reduxjs/toolkit';
+import { authApi } from '../services/auth/authQuery';
 
 export const listenerMiddleware = createListenerMiddleware();
 
@@ -9,7 +9,7 @@ listenerMiddleware.startListening({
     listenerApi.cancelActiveListeners();
 
     if (action.payload.jwt) {
-      localStorage.setItem("jwt", action.payload.jwt);
+      localStorage.setItem('jwt', action.payload.jwt);
     }
   },
 });

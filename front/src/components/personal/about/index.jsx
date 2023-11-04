@@ -1,7 +1,7 @@
 export const About = () => {
   return (
-    <div className="flex-1 bg-white rounded-lg shadow-xl p-8">
-      <h4 className="text-xl text-gray-900 font-bold">О себе</h4>
+    <div className="flex-1 rounded-lg bg-white p-8 shadow-xl">
+      <h4 className="text-xl font-bold text-gray-900">О себе</h4>
       <p className="mt-2 text-gray-700">
         Привет! Я Минкаил, и я - настоящий тусовщик. Я считаю, что жизнь - это
         одно большое приключение, и я стремлюсь получить от нее максимум

@@ -1,54 +1,51 @@
-import {WatchStar} from '@components/icons'
+import { WatchStar } from '@components/icons';
 const AboutUs = () => {
   return (
     <>
-<section className="px-6 max-w-screen-xl m-auto py-24 mb-24" id="aboutUs">
-  <div className="md:flex md:justify-between">
-    <div className="text-gray-800 text-lg md:text-xl md:mb-4">ПРО НАС</div>
-    <h2
-      className="text-4xl md:text-6xl font-bold md:px-2 py-1 text-secondary-700 rounded-md"
-    >
-      НАША ПЛОЩАДКА АКТИВНО
-    </h2>
-  </div>
+      <section className="m-auto mb-24 max-w-screen-xl px-6 py-24" id="aboutUs">
+        <div className="md:flex md:justify-between">
+          <div className="text-lg text-gray-800 md:mb-4 md:text-xl">
+            ПРО НАС
+          </div>
+          <h2 className="rounded-md py-1 text-4xl font-bold text-secondary-700 md:px-2 md:text-6xl">
+            НАША ПЛОЩАДКА АКТИВНО
+          </h2>
+        </div>
 
-  <h2
-    className="text-4xl md:text-6xl font-bold md:font-medium text-secondary-700 mt-4"
-  >
-    <span className="px-2 md:px-4 bg-brand-green text-white rounded-md"
-      >РАЗВИВАЕТСЯ</span
-    > МЕЖРЕГИОНАЛЬНО
-  </h2>
+        <h2 className="mt-4 text-4xl font-bold text-secondary-700 md:text-6xl md:font-medium">
+          <span className="rounded-md bg-brand-green px-2 text-white md:px-4">
+            РАЗВИВАЕТСЯ
+          </span>{' '}
+          МЕЖРЕГИОНАЛЬНО
+        </h2>
 
-  <div className="mt-20 flex justify-center items-center relative">
-  <img
-        src="https://i.imgur.com/HVBwk5J.jpg"
-        alt=""
-        className="w-full lg:rounded-bl-[15rem] rounded-xl"
-      />
-      <div
-        className="absolute inset-0 bg-[#597F9B] opacity-50 lg:rounded-bl-[15rem] rounded-xl z-20"
-      />
-      <button
-        className="text-center absolute z-30 flex justify-center items-center"
-      >
-                <p className='text-white absolute top-auto bottom-auto z-20'>Посмотреть</p>
-        <WatchStar className="h-[100px] w-[100px] md:h-[170px] md:w-[170px] spin z-10" />
-      </button>
-      {/* <iframe
+        <div className="relative mt-20 flex items-center justify-center">
+          <img
+            src="https://i.imgur.com/HVBwk5J.jpg"
+            alt=""
+            className="w-full rounded-xl lg:rounded-bl-[15rem]"
+          />
+          <div className="absolute inset-0 z-20 rounded-xl bg-[#597F9B] opacity-50 lg:rounded-bl-[15rem]" />
+          <button className="absolute z-30 flex items-center justify-center text-center">
+            <p className="absolute bottom-auto top-auto z-20 text-white">
+              Посмотреть
+            </p>
+            <WatchStar className="spin z-10 h-[100px] w-[100px] md:h-[170px] md:w-[170px]" />
+          </button>
+          {/* <iframe
         className="w-full aspect-video lg:rounded-bl-[15rem]
         lg:hover:rounded-bl-xl rounded-xl transition-all"
-        src="https://www.youtube.com/embed/5OAzOoMlUQM?si=GOnjbiEOblz_XtgT"
+        src="https://www.youtube.com/embed/5OAzOo=GiEOblz_XtgT"
         title="промо"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
         gyroscope; picture-in-picture; web-share"
         allowfullscreen
       /> */}
-  </div>
-</section>
+        </div>
+      </section>
     </>
-  )
-}
+  );
+};
 
 export default AboutUs;

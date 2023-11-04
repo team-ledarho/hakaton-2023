@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { authApi } from "../auth/authQuery";
+import { createSlice } from '@reduxjs/toolkit';
+import { authApi } from '../auth/authQuery';
 
 const initialState = {
   user: null,
@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {},
   extraReducers: (builder) => {

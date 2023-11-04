@@ -14,8 +14,6 @@ const root = createRoot(container);
 
 root.render(
   <Provider store={store}>
-    <Auth>
-      <RouterProvider router={router} />
-    </Auth>
+    <RouterProvider router={router} />
   </Provider>,
 );

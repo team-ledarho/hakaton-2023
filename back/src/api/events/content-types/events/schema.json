@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events_api",
+  "info": {
+    "singularName": "events",
+    "pluralName": "events-api",
+    "displayName": "events",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150,
+      "default": "Безымянное мероприятие"
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "minLength": 50
+    },
+    "isPublic": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "format": {
+      "type": "string",
+      "required": true,
+      "default": "Мероприятие"
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "location_iframe": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "datetime"
+    },
+    "end_data": {
+      "type": "datetime"
+    }
+  }
+}

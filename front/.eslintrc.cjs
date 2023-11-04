@@ -5,35 +5,35 @@ module.exports = {
     jest: true,
   },
   extends: [
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:testing-library/react",
-    "plugin:jest-dom/recommended",
-    "standard",
-    "prettier",
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:testing-library/react',
+    'plugin:jest-dom/recommended',
+    'standard',
+    'prettier',
   ],
   overrides: [],
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-  plugins: ["react", "use-encapsulation", "testing-library", "jest-dom"],
+  plugins: ['react', 'use-encapsulation', 'testing-library', 'jest-dom'],
   rules: {
-    "no-console": [
-      "warn",
+    'no-console': [
+      'warn',
       {
-        allow: ["error", "info", "table", "warn"],
+        allow: ['error', 'info', 'table', 'warn'],
       },
     ],
-    "no-unused-vars": ["error", { destructuredArrayIgnorePattern: "^_" }],
-    "react/prop-types": "off",
-    "use-encapsulation/prefer-custom-hooks": 1,
+    'no-unused-vars': ['error', { destructuredArrayIgnorePattern: '^_' }],
+    'react/prop-types': 'off',
+    'use-encapsulation/prefer-custom-hooks': 1,
   },
   settings: {
     react: {
-      version: "detect",
+      version: 'detect',
     },
   },
 };

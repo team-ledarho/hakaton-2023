@@ -1,42 +1,42 @@
 export const PersonalInfo = ({ info }) => {
   return (
-    <div className="w-full flex flex-col 2xl:w-1/3">
-      <div className="flex-1 bg-white rounded-lg shadow-xl p-8">
-        <h4 className="text-xl text-gray-900 font-bold">Информация</h4>
+    <div className="flex w-full flex-col 2xl:w-1/3">
+      <div className="flex-1 rounded-lg bg-white p-8 shadow-xl">
+        <h4 className="text-xl font-bold text-gray-900">Информация</h4>
         <ul className="mt-2 text-gray-700">
           <li className="flex border-y py-2">
-            <span className="font-bold w-24">Имя:</span>
+            <span className="w-24 font-bold">Имя:</span>
             <span className="text-gray-700">{info.username}</span>
           </li>
           <li className="flex border-b py-2">
-            <span className="font-bold w-24">День рождение:</span>
+            <span className="w-24 font-bold">День рождение:</span>
             <span className="text-gray-700">18 марта, 2004</span>
           </li>
           <li className="flex border-b py-2">
-            <span className="font-bold w-24">Активен с:</span>
+            <span className="w-24 font-bold">Активен с:</span>
             <span className="text-gray-700">10 января 2022 (25 days ago)</span>
           </li>
           <li className="flex border-b py-2">
-            <span className="font-bold w-24">Номер:</span>
+            <span className="w-24 font-bold">Номер:</span>
             <span className="text-gray-700">+7(989)-888-88-88</span>
           </li>
           <li className="flex border-b py-2">
-            <span className="font-bold w-24">Телеграм:</span>
+            <span className="w-24 font-bold">Телеграм:</span>
             <span className="text-gray-700">@nickname</span>
           </li>
           <li className="flex border-b py-2">
-            <span className="font-bold w-24">Location:</span>
+            <span className="w-24 font-bold">Location:</span>
             <span className="text-gray-700">Грозный, Путина 23</span>
           </li>
           <li className="flex border-b py-2">
-            <span className="font-bold w-24">Языки:</span>
+            <span className="w-24 font-bold">Языки:</span>
             <span className="text-gray-700">Английский, Чеченский</span>
           </li>
-          <li className="flex items-center border-b py-2 space-x-2">
-            <span className="font-bold w-24">Для связи:</span>
+          <li className="flex items-center space-x-2 border-b py-2">
+            <span className="w-24 font-bold">Для связи:</span>
             <a href="#" title="Facebook">
               <svg
-                className="w-5 h-5"
+                className="h-5 w-5"
                 id="Layer_1"
                 data-name="Layer 1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,7 @@ export const PersonalInfo = ({ info }) => {
             </a>
             <a href="#" title="Twitter">
               <svg
-                className="w-5 h-5"
+                className="h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 333333 333333"
                 shapeRendering="geometricPrecision"
@@ -76,7 +76,7 @@ export const PersonalInfo = ({ info }) => {
             </a>
             <a href="#" title="LinkedIn">
               <svg
-                className="w-5 h-5"
+                className="h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 333333 333333"
                 shapeRendering="geometricPrecision"
@@ -93,7 +93,7 @@ export const PersonalInfo = ({ info }) => {
             </a>
             <a href="#" title="Github">
               <svg
-                className="w-5 h-5"
+                className="h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
                 width="0"
                 height="0"

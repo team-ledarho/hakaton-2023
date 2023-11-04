@@ -9,7 +9,10 @@
     "start": "vite",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "lint": "prettier --check . && eslint src --ext .js,.ts,tsx,jsx",
+    "lint:fix": "prettier --check . && eslint --ext .js,.ts,.jsx . --fix",
+    "format": "prettier --write . --config prettier.config.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
@@ -41,6 +44,10 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-testing-library": "^6.0.1",
     "eslint-plugin-use-encapsulation": "^1.1.0",
+    "i18next": "^23.2.3",
+    "i18next-browser-languagedetector": "^7.0.2",
+    "i18next-http-backend": "^2.2.1",
+    "react-i18next": "^13.0.1",
     "jsdom": "^22.0.0",
     "postcss": "^8.4.19",
     "prettier": "^3.0.3",

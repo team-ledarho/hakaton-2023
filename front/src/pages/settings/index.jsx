@@ -1,133 +1,133 @@
-import { Layout } from "@components/layout";
-import { useNavigate } from "react-router-dom";
+import { Layout } from '@components/layout';
+import { useNavigate } from 'react-router-dom';
 
 export const Settings = () => {
   const navigate = useNavigate();
 
   return (
     <Layout>
-      <div className="w-full lg:w-8/12  mx-auto py-8">
-        <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
-          <div className="rounded-t bg-white mb-0 px-6 py-6">
-            <div className="text-center flex justify-between">
+      <div className="mx-auto w-full  py-8 lg:w-8/12">
+        <div className="bg-blueGray-100 relative mb-6 flex w-full min-w-0 flex-col break-words rounded-lg border-0 shadow-lg">
+          <div className="mb-0 rounded-t bg-white px-6 py-6">
+            <div className="flex justify-between text-center">
               <h6 className="text-blueGray-700 text-xl font-bold">
                 Мой аккаунт
               </h6>
 
               <button
                 onClick={() => navigate(-1)}
-                className="bg-blue-600 hover:bg-blue-700 text-white active:bg-pink-600 uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                className="mr-1 rounded bg-blue-600 px-4 py-2 text-xs uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:bg-blue-700 hover:shadow-md focus:outline-none active:bg-pink-600"
                 type="button"
               >
                 Вернуться
               </button>
             </div>
           </div>
-          <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+          <div className="flex-auto px-4 py-10 pt-0 lg:px-10">
             <form>
-              <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+              <h6 className="text-blueGray-400 mb-6 mt-3 text-sm font-bold uppercase">
                 Информация пользователя
               </h6>
               <div className="flex flex-wrap">
-                <div className="w-full lg:w-6/12 px-4">
-                  <div className="relative w-full mb-3">
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                <div className="w-full px-4 lg:w-6/12">
+                  <div className="relative mb-3 w-full">
+                    <label className="text-blueGray-600 mb-2 block text-xs font-bold uppercase">
                       Имя пользователя
                     </label>
                     <input
                       type="text"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
                     />
                   </div>
                 </div>
-                <div className="w-full lg:w-6/12 px-4">
-                  <div className="relative w-full mb-3">
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                <div className="w-full px-4 lg:w-6/12">
+                  <div className="relative mb-3 w-full">
+                    <label className="text-blueGray-600 mb-2 block text-xs font-bold uppercase">
                       Почта
                     </label>
                     <input
                       type="email"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
                     />
                   </div>
                 </div>
-                <div className="w-full lg:w-6/12 px-4">
-                  <div className="relative w-full mb-3">
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                <div className="w-full px-4 lg:w-6/12">
+                  <div className="relative mb-3 w-full">
+                    <label className="text-blueGray-600 mb-2 block text-xs font-bold uppercase">
                       Имя
                     </label>
                     <input
                       type="text"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
                     />
                   </div>
                 </div>
-                <div className="w-full lg:w-6/12 px-4">
-                  <div className="relative w-full mb-3">
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                <div className="w-full px-4 lg:w-6/12">
+                  <div className="relative mb-3 w-full">
+                    <label className="text-blueGray-600 mb-2 block text-xs font-bold uppercase">
                       Фамилия
                     </label>
                     <input
                       type="text"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
                     />
                   </div>
                 </div>
               </div>
 
-              <hr className="mt-6 border-b-1 border-blueGray-300" />
+              <hr className="border-b-1 border-blueGray-300 mt-6" />
 
-              <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+              <h6 className="text-blueGray-400 mb-6 mt-3 text-sm font-bold uppercase">
                 Контактная информафия
               </h6>
               <div className="flex flex-wrap">
-                <div className="w-full lg:w-12/12 px-4">
-                  <div className="relative w-full mb-3">
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                <div className="lg:w-12/12 w-full px-4">
+                  <div className="relative mb-3 w-full">
+                    <label className="text-blueGray-600 mb-2 block text-xs font-bold uppercase">
                       Адресс
                     </label>
                     <input
                       type="text"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
                     />
                   </div>
                 </div>
-                <div className="w-full lg:w-4/12 px-4">
-                  <div className="relative w-full mb-3">
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                <div className="w-full px-4 lg:w-4/12">
+                  <div className="relative mb-3 w-full">
+                    <label className="text-blueGray-600 mb-2 block text-xs font-bold uppercase">
                       Город
                     </label>
                     <input
                       type="email"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
                     />
                   </div>
                 </div>
-                <div className="w-full lg:w-4/12 px-4">
-                  <div className="relative w-full mb-3">
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                <div className="w-full px-4 lg:w-4/12">
+                  <div className="relative mb-3 w-full">
+                    <label className="text-blueGray-600 mb-2 block text-xs font-bold uppercase">
                       Страна
                     </label>
                     <input
                       type="text"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
                     />
                   </div>
                 </div>
-                <div className="w-full lg:w-4/12 px-4">
-                  <div className="relative w-full mb-3">
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                <div className="w-full px-4 lg:w-4/12">
+                  <div className="relative mb-3 w-full">
+                    <label className="text-blueGray-600 mb-2 block text-xs font-bold uppercase">
                       Почтовый индекс
                     </label>
                     <input
                       type="text"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="placeholder-blueGray-300 text-blueGray-600 w-full rounded border-0 bg-white px-3 py-3 text-sm shadow transition-all duration-150 ease-linear focus:outline-none focus:ring"
                     />
                   </div>
                 </div>
               </div>
               <button
-                className="bg-blue-600 hover:bg-blue-700 text-white active:bg-pink-600 uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                className="mr-1 rounded bg-blue-600 px-4 py-2 text-xs uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:bg-blue-700 hover:shadow-md focus:outline-none active:bg-pink-600"
                 type="button"
               >
                 Cохранить
@@ -136,11 +136,11 @@ export const Settings = () => {
           </div>
         </div>
 
-        <footer className="relative  pt-8 pb-6 mt-2">
+        <footer className="relative  mt-2 pb-6 pt-8">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap items-center md:justify-between justify-center">
-              <div className="w-full md:w-6/12 px-4 mx-auto text-center">
-                <div className="text-sm text-gray-500 font-semibold py-1">
+            <div className="flex flex-wrap items-center justify-center md:justify-between">
+              <div className="mx-auto w-full px-4 text-center md:w-6/12">
+                <div className="py-1 text-sm font-semibold text-gray-500">
                   Все данные пользователей зашифрованы
                 </div>
               </div>

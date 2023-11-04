@@ -1,10 +1,13 @@
-import { Header } from "@components//header";
+import Header from '@components/landing/header';
+import { Auth } from '@services/feature/auth.feature';
 
 export const Layout = ({ children }) => {
-  return (
-    <div className="w-[80%] m-auto">
+  return ( 
+    <>
+    <Auth>
       <Header />
-      {children}
-    </div>
-  );
+    </Auth>
+    {children}
+    </>
+    );
 };

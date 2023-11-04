@@ -84,7 +84,7 @@ export const HomePage = () => {
       className="col-span-3 text-white bg-gray-800 rounded-b-lg rounded-tl-lg p-7"
     >
       <span className="text-4xl font-bold">2 - ШАГ</span>
-      <h3 className="font-bold text-xl pt-10">🏂 ВЫБЕРИ МЕРОПРИЯТИЕ</h3>
+      <h3 className="font-bold text-xl pt-10">🏂 ВЫБРАТЬ МЕРОПРИЯТИЕ</h3>
       <p className="pt-2">
         Наш сервис полон функционала и разнообразия в выборе
       </p>
@@ -101,7 +101,7 @@ export const HomePage = () => {
       className="col-span-3 text-white bg-brand-green rounded-b-lg rounded-tl-lg p-7"
     >
       <span className="text-4xl font-bold">3 - ШАГ</span>
-      <h3 className="font-bold text-xl pt-10">⚡️ УЧАСТВУЙ</h3>
+      <h3 className="font-bold text-xl pt-10">⚡️ УЧАСТВОВАТЬ</h3>
       <p className="pt-2">
         При выборе интересного мероприятия остается только ждать начала!
       </p>
@@ -150,15 +150,16 @@ export const HomePage = () => {
                 ЗА ВЫПОЛНЕНИЕ
               </h2>
               <h2 className="text-3xl md:text-6xl lg:text-8xl font-bold col-start-1 row-start-3 col-span-3 md:col-start-2">
-              ЗАДАНИЙ НА САЙТЕ
+              ЗАДАНИЙ
               </h2>
               <p className="text-lg col-start-1 col-span-3 row-start-4 md:col-start-2 md:col-span-1 text-left">
               Наша гордость - это ваша активность 🔥
               </p>
               <div className="md:col-start-3 md:row-start-3 row-start-5 mt-1 col-start-2 md:row-span-2 justify-self-end aspect-square w-full h-full grid place-content-center">
-                <a href="/login" aria-label="Войти" className="relative flex justify-center items-center">
-                  <p className="absolute text-2xl uppercase">Войти</p>
+                <a href="/login" aria-label="Посмотреть" className="relative flex justify-center items-center italic">
+                  <p className="absolute text-2xl uppercase z-20">Посмотреть</p>
                 <svg
+  className="spin z-10"
   xmlns="http://www.w3.org/2000/svg"
   width="220"
   height="220"

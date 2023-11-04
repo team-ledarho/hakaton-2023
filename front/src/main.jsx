@@ -20,16 +20,17 @@ i18next
   .use(initReactI18next)
   .init({
     supportedLngs: ['ru', 'en'],
-    fallbackLng: 'en',
+    fallbackLng: 'ru',
     debug: false,
-    lng: 'ru',
     detection: {
-      order: ['path', 'cookie', 'htmlTag'],
-      caches: ['cookie'],
+      order: ['localStorage', 'path', 'cookie', 'htmlTag'],
+      lookupLocalStorage: 'localelang_zarzar',
+      caches: ['localStorage', 'cookie'],
     },
+    // react: { useSuspense: false },
     backend: {
-      loadPath: '/locales/{{lng}}/translation.json',
-    },
+      loadPath: '/locales/{{lng}}/translation.json'
+    }
   })
 
 root.render(

@@ -9,7 +9,9 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: () => initialState,
+  },
   extraReducers: (builder) => {
     builder
       .addMatcher(authApi.endpoints.login.matchFulfilled, (state, action) => {
@@ -26,11 +28,17 @@ export const authSlice = createSlice({
       .addMatcher(authApi.endpoints.current.matchFulfilled, (state, action) => {
         state.user = action.payload;
         state.isAuthenticated = true;
+      })
+      .addMatcher(authApi.endpoints.update.matchFulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isAuthenticated = true;
       });
   },
 });
 
 export default authSlice.reducer;
+
+export const { logout } = authSlice.actions;
 
 export const selectorUser = (state) => state.auth.user;
 export const selectorIsAuthenticated = (state) => state.auth.isAuthenticated;

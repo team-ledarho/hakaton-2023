@@ -1,39 +1,167 @@
+import { useState } from 'react';
+import { EditIcon, SaveIcon } from '../../icons';
+import moment from 'moment';
+import { useUpdateMutation } from '@services/auth/authQuery';
+import { useSelector } from 'react-redux';
+import { selectorUser } from '../../../services/slices/authSlice';
+
 export const PersonalInfo = ({ info }) => {
+  const [edit, setEdit] = useState(false);
+  const [onUpdate] = useUpdateMutation();
+  const [profile, setProfile] = useState({
+    id: info.id,
+    username: info.username,
+    birthday: info.birthday,
+    link_telegram: info.link_telegram,
+    link_vk: info.link_vk,
+    location: info.location,
+  });
+  const [user, setUser] = useState(info);
+  const userCurrent = useSelector(selectorUser);
+
+  const onEdit = () => {
+    setEdit((prev) => !prev);
+  };
+
+  const onChange = ({ target }) => {
+    const { name, value } = target;
+    setProfile((currentUser) => ({
+      ...currentUser,
+      [name]: value,
+    }));
+  };
+
+  const parsedDate = moment(user.birthday);
+  const formatFullDate = (date) => {
+    return date.format('LL');
+  };
+
+  const onSubmit = async () => {
+    try {
+      await onUpdate(profile)
+        .unwrap()
+        .then((data) => {
+          setEdit((prev) => !prev);
+          setUser(data);
+        });
+    } catch (error) {
+      alert('Прикрутить тостеры!');
+    }
+  };
+
   return (
     <div className="flex w-full flex-col 2xl:w-1/3">
       <div className="flex-1 rounded-lg bg-white p-8 shadow-xl">
-        <h4 className="text-xl font-bold text-gray-900">Информация</h4>
+        <div className="flex items-center justify-between">
+          <h4 className="text-xl font-bold text-gray-900">Информация</h4>
+          <div className="flex gap-5">
+            {edit && (
+              <button onClick={() => onSubmit()}>
+                <SaveIcon className="h-5 w-5 cursor-pointer" />
+              </button>
+            )}
+            {userCurrent.id === user.id && (
+              <button onClick={onEdit}>
+                <EditIcon className="h-5 w-5 cursor-pointer" />
+              </button>
+            )}
+          </div>
+        </div>
         <ul className="mt-2 text-gray-700">
-          <li className="flex border-y py-2">
-            <span className="w-24 font-bold">Имя:</span>
-            <span className="text-gray-700">{info.username}</span>
+          <li className="flex h-12 items-center border-y py-2">
+            <span className="flex h-full w-24 items-center font-bold">
+              Имя:
+            </span>
+            {edit ? (
+              <span>
+                <input
+                  name="username"
+                  onChange={onChange}
+                  value={profile.username}
+                  placeholder="Введите имя"
+                  className="h-full w-full rounded-lg border-gray-300 bg-transparent px-4 py-1 text-gray-900 focus:outline-none"
+                />
+              </span>
+            ) : (
+              <span className="text-gray-700">{user.username}</span>
+            )}
           </li>
-          <li className="flex border-b py-2">
-            <span className="w-24 font-bold">День рождение:</span>
-            <span className="text-gray-700">18 марта, 2004</span>
+          <li className="min-h-12 flex h-full items-center border-y py-2">
+            <span className="flex h-full w-24 items-center font-bold">
+              Дата рождения:
+            </span>
+            {edit ? (
+              <span>
+                <input
+                  name="birthday"
+                  onChange={onChange}
+                  value={profile.birthday}
+                  type="date"
+                  placeholder="Введите дату рождения"
+                  className="h-full w-full rounded-lg border-gray-300 bg-transparent px-4 py-1 text-gray-900 focus:outline-none"
+                />
+              </span>
+            ) : (
+              <span className="text-gray-700">
+                {formatFullDate(parsedDate)}
+              </span>
+            )}
           </li>
-          <li className="flex border-b py-2">
-            <span className="w-24 font-bold">Активен с:</span>
-            <span className="text-gray-700">10 января 2022 (25 days ago)</span>
+          <li className="flex h-12 items-center border-y py-2">
+            <span className="flex h-full w-24 items-center font-bold">
+              Телеграм:
+            </span>
+            {edit ? (
+              <span>
+                <input
+                  name="link_telegram"
+                  value={profile.link_telegram}
+                  onChange={onChange}
+                  placeholder="Ссылка на ваш телеграм"
+                  className="h-full w-full rounded-lg border-gray-300 bg-transparent px-4 py-1 text-gray-900 focus:outline-none"
+                />
+              </span>
+            ) : (
+              <span className="text-gray-700">{user.link_telegram}</span>
+            )}
           </li>
-          <li className="flex border-b py-2">
-            <span className="w-24 font-bold">Номер:</span>
-            <span className="text-gray-700">+7(989)-888-88-88</span>
+          <li className="flex h-12 items-center border-y py-2">
+            <span className="flex h-full w-24 items-center font-bold">Вк:</span>
+            {edit ? (
+              <span>
+                <input
+                  name="link_vk"
+                  onChange={onChange}
+                  value={profile.link_vk}
+                  placeholder="Ссылка на ваш вк"
+                  className="h-full w-full rounded-lg border-gray-300 bg-transparent px-4 py-1 text-gray-900 focus:outline-none"
+                />
+              </span>
+            ) : (
+              <span className="text-gray-700">{user.link_vk}</span>
+            )}
           </li>
-          <li className="flex border-b py-2">
-            <span className="w-24 font-bold">Телеграм:</span>
-            <span className="text-gray-700">@nickname</span>
+          <li className="flex h-12 items-center border-y py-2">
+            <span className="flex h-full w-24 items-center font-bold">
+              Локация:
+            </span>
+            {edit ? (
+              <span>
+                <input
+                  name="location"
+                  onChange={onChange}
+                  value={profile.location}
+                  placeholder="Где вы находитесь?"
+                  className="h-full w-full rounded-lg border-gray-300 bg-transparent px-4 py-1 text-gray-900 focus:outline-none"
+                />
+              </span>
+            ) : (
+              <span className="text-gray-700">{user.location}</span>
+            )}
           </li>
-          <li className="flex border-b py-2">
-            <span className="w-24 font-bold">Location:</span>
-            <span className="text-gray-700">Грозный, Путина 23</span>
-          </li>
-          <li className="flex border-b py-2">
-            <span className="w-24 font-bold">Языки:</span>
-            <span className="text-gray-700">Английский, Чеченский</span>
-          </li>
+
           <li className="flex items-center space-x-2 border-b py-2">
-            <span className="w-24 font-bold">Для связи:</span>
+            <span className="flex w-24 items-center font-bold">Для связи:</span>
             <a href="#" title="Facebook">
               <svg
                 className="h-5 w-5"

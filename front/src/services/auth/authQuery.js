@@ -22,12 +22,23 @@ export const authApi = api.injectEndpoints({
         method: 'GET',
       }),
     }),
+    update: builder.mutation({
+      query: (userData) => ({
+        url: `/users/${userData.id}`,
+        method: 'PUT',
+        body: userData,
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation, useCurrentQuery } =
-  authApi;
+export const {
+  useLoginMutation,
+  useRegisterMutation,
+  useCurrentQuery,
+  useUpdateMutation,
+} = authApi;
 
 export const {
-  endpoints: { login, register, current },
+  endpoints: { login, register, current, update },
 } = authApi;

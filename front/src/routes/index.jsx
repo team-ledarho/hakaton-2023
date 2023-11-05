@@ -5,26 +5,22 @@ import { Login } from '@pages/login';
 import { Register } from '@pages/register';
 import { Personal } from '@pages/personal';
 import { Settings } from '@pages/settings';
+import { EventPage } from '@pages/event-page';
+import { Events } from '@pages/events';
 import { Auth } from '@services/feature/auth.feature';
 
 export const router = createBrowserRouter([
   {
     path: paths.home,
-    element: (
-    <HomePage />
-    ),
+    element: <HomePage />,
   },
   {
     path: paths.login,
-    element: (
-        <Login />
-    ),
+    element: <Login />,
   },
   {
     path: paths.register,
-    element: (
-        <Register />
-    ),
+    element: <Register />,
   },
   {
     path: paths.personal,
@@ -41,5 +37,13 @@ export const router = createBrowserRouter([
         <Settings />
       </Auth>
     ),
+  },
+  {
+    path: paths.events,
+    element: <Events />,
+  },
+  {
+    path: paths.eventpage,
+    element: <EventPage />,
   },
 ]);

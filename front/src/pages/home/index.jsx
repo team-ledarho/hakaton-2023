@@ -4,7 +4,6 @@ import Technologies from '@components/landing/Technologies';
 import Footer from '@components/landing/footer';
 import Partners from '@components/landing/Partners';
 import AboutUs from '@components/landing/aboutUs';
-import Header from '@components/landing/header';
 
 export const HomePage = () => {
   const questions = [
@@ -32,7 +31,6 @@ export const HomePage = () => {
 
   return (
     <Layout>
-      <Header />
       <head>
         <title>Зарзар</title>
         <meta
@@ -207,6 +205,7 @@ export const HomePage = () => {
               <li>Имеет базовый функционал</li>
               <li>Не может выбрать для себя эмодзи рядом с именем</li>
               <li>Не может поставить свою аватарку</li>
+              <li>Не может поменять фон своего профиля</li>
               <li>Не может писать комментарии</li>
               <li>Присутствует реклама</li>
             </ul>
@@ -221,6 +220,7 @@ export const HomePage = () => {
 
             <ul className="mt-14 list-inside list-disc text-lg text-secondary-50">
               <li>Имеет базовый функционал</li>
+              <li>Может поставить свою аватарку</li>
               <li>Может выбрать для себя эмодзи рядом с именем</li>
               <li>Может писать комментарии</li>
               <li>Отключена реклама</li>
@@ -247,6 +247,7 @@ export const HomePage = () => {
 
             <ul className="mt-14 list-inside list-disc text-lg text-secondary-50">
               <li>Имеет весь функционал</li>
+              <li>Может поменять фон своего профиля</li>
               <li>Может поставить свою аватарку</li>
               <li>Имеет особенную эмблему</li>
             </ul>

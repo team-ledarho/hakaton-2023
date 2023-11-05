@@ -1,7 +1,7 @@
 import { fetchBaseQuery, createApi, retry } from '@reduxjs/toolkit/query/react';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:1337/api',
+  baseUrl: `${import.meta.env.VITE_STRAPI_URL}/api`,
   prepareHeaders: (headers, { getState }) => {
     const jwt =
       getState().authReducer?.user?.jwt || localStorage.getItem('jwt');

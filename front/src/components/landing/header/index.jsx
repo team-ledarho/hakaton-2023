@@ -64,8 +64,8 @@ const Header = () => {
           </nav>
 
           <nav className="hidden flex-1 justify-center gap-5 md:flex">
-            <a className="text-xs md:text-base" href="/#aboutUs">
-              Про нас
+            <a className="text-xs md:text-base" href="/events">
+              Мероприятия
             </a>
             <a className="text-xs md:text-base" href="/#benefits">
               Процесс
@@ -78,38 +78,38 @@ const Header = () => {
             </a>
           </nav>
 
-          <nav className="text-right md:basis-1/4">
+          <nav className="flex items-center justify-end md:basis-1/4">
             <SelectLanguage />
             <a
-              className="ml-2 rounded-md bg-green-600 px-6 py-2 text-xs text-white md:px-8 md:py-3 md:text-base"
-              href={ user ? '/personal' : '/register'}
+              className="ml-2 rounded-md bg-green-600 px-6 py-2 text-xs text-white md:px-8 md:py-2 md:text-base"
+              href={user ? '/personal' : '/register'}
             >
-              Аккаунт
+              Войти
             </a>
-          </nav>
 
-          <button
-            onClick={toggleMenu}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-secondary-500 md:hidden"
-            aria-expanded={isMenuOpen}
-          >
-            <span className="sr-only">Открыть меню</span>
-            <svg
-              className="h-5 w-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
+            <button
+              onClick={toggleMenu}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-secondary-500 md:hidden"
+              aria-expanded={isMenuOpen}
             >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
+              <span className="sr-only">Открыть меню</span>
+              <svg
+                className="h-5 w-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 17 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            </button>
+          </nav>
 
           {isMenuOpen && (
             <div className="fixed left-0 top-0 z-50 h-full w-full bg-gray-800">

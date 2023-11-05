@@ -4,4 +4,6 @@ export const paths = {
   register: '/register',
   personal: '/personal',
   settings: '/personal/settings',
+  events: '/events',
+  eventpage: '/events/:slug'
 };

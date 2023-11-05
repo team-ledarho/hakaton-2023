@@ -35,7 +35,7 @@
     "format": {
       "type": "string",
       "required": true,
-      "default": "Мероприятие"
+      "default": "Очное"
     },
     "location": {
       "type": "string",
@@ -49,6 +49,25 @@
     },
     "end_data": {
       "type": "datetime"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "organizer_name": {
+      "type": "string",
+      "required": true,
+      "minLength": 3
+    },
+    "subscribers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "event"
     }
   }
 }

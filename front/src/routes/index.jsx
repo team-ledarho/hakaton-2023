@@ -5,6 +5,8 @@ import { Login } from '@pages/login';
 import { Register } from '@pages/register';
 import { Personal } from '@pages/personal';
 import { Settings } from '@pages/settings';
+import { EventPage } from '@pages/event-page';
+import { Events } from '@pages/events';
 import { Auth } from '@services/feature/auth.feature';
 
 export const router = createBrowserRouter([
@@ -40,6 +42,18 @@ export const router = createBrowserRouter([
       <Auth>
         <Settings />
       </Auth>
+    ),
+  },
+  {
+    path: paths.events,
+    element: (
+        <Events />
+    ),
+  },
+  {
+    path: paths.eventpage,
+    element: (
+        <EventPage />
     ),
   },
 ]);

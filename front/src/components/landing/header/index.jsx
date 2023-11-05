@@ -64,8 +64,8 @@ const Header = () => {
           </nav>
 
           <nav className="hidden flex-1 justify-center gap-5 md:flex">
-            <a className="text-xs md:text-base" href="/#aboutUs">
-              Про нас
+            <a className="text-xs md:text-base" href="/events">
+              Мероприятия
             </a>
             <a className="text-xs md:text-base" href="/#benefits">
               Процесс
@@ -78,15 +78,14 @@ const Header = () => {
             </a>
           </nav>
 
-          <nav className="text-right md:basis-1/4">
+          <nav className="md:basis-1/4 flex items-center justify-end">
             <SelectLanguage />
             <a
-              className="ml-2 rounded-md bg-green-600 px-6 py-2 text-xs text-white md:px-8 md:py-3 md:text-base"
+              className="ml-2 rounded-md bg-green-600 px-6 py-2 text-xs text-white md:px-8 md:py-2 md:text-base"
               href={ user ? '/personal' : '/register'}
             >
-              Аккаунт
+              Войти
             </a>
-          </nav>
 
           <button
             onClick={toggleMenu}
@@ -110,6 +109,7 @@ const Header = () => {
               />
             </svg>
           </button>
+          </nav>
 
           {isMenuOpen && (
             <div className="fixed left-0 top-0 z-50 h-full w-full bg-gray-800">

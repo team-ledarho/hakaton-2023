@@ -11,6 +11,45 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './routes';
 import { store } from './store/store';
 
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import localeData from 'dayjs/plugin/localeData';
+import ruLocale from 'dayjs/locale/ru';
+import dayjs from 'dayjs';
+
+dayjs.extend(customParseFormat);
+dayjs.extend(localeData);
+dayjs.locale({
+  ...ruLocale,
+  months: [
+    'Января',
+    'Февраля',
+    'Марта',
+    'Апреля',
+    'Мая',
+    'Июня',
+    'Июля',
+    'Августа',
+    'Сентября',
+    'Октября',
+    'Ноября',
+    'Декабря'
+  ],
+  monthsShort: [
+    'Янв',
+    'Фев',
+    'Мар',
+    'Апр',
+    'Май',
+    'Июн',
+    'Июл',
+    'Авг',
+    'Сен',
+    'Окт',
+    'Ноя',
+    'Дек'
+  ]
+});
+
 const container = document.querySelector('#root');
 const root = createRoot(container);
 

@@ -86,6 +86,12 @@
     },
     "birthday": {
       "type": "date"
+    },
+    "location": {
+      "type": "string"
+    },
+    "about_me": {
+      "type": "text"
     }
   }
 }

@@ -9,7 +9,16 @@ import { useNavigate } from 'react-router-dom';
 import { paths } from '../../paths';
 
 const initialUserLogin = { password: '', identifier: '' };
-const initialUserRegister = { password: '', email: '', username: '' };
+const initialUserRegister = {
+  password: '',
+  email: '',
+  username: '',
+  link_telegram: '',
+  link_vk: '',
+  birthday: '',
+  location: '',
+  about_me: '',
+};
 
 export const Form = ({ type }) => {
   const [user, setUser] = useState(
@@ -153,27 +162,6 @@ export const Form = ({ type }) => {
                 эмоциям ✨
               </p>
               <input
-                type="text"
-                {...register('username', {
-                  required: 'Поле обязательно к заполнению',
-                  minLength: {
-                    value: 5,
-                    message: 'Минимум 5 символов',
-                  },
-                })}
-                name="username"
-                onChange={onChange}
-                id="username"
-                value={user.username}
-                placeholder="Ваше имя и фамилие"
-                className="my-2 block w-full rounded-md border border-secondary-200 px-5 py-4"
-              />
-              {errors?.username && (
-                <div className="rounded-md border border-red-200 bg-red-100 px-5 py-3 text-red-800">
-                  {errors?.username?.message || 'ERROR!'}
-                </div>
-              )}
-              <input
                 type="email"
                 {...register('email', {
                   required: 'Поле обязательно к заполнению',
@@ -218,6 +206,138 @@ export const Form = ({ type }) => {
               {errors?.password && (
                 <div className="rounded-md border border-red-200 bg-red-100 px-5 py-3 text-red-800">
                   <p>{errors?.password?.message || 'ERROR!'}</p>
+                </div>
+              )}
+
+              <input
+                type="text"
+                {...register('username', {
+                  required: 'Поле обязательно к заполнению',
+                  minLength: {
+                    value: 5,
+                    message: 'Минимум 5 символов',
+                  },
+                })}
+                name="username"
+                onChange={onChange}
+                id="username"
+                value={user.username}
+                placeholder="Ваше имя и фамилие"
+                className="my-2 block w-full rounded-md border border-secondary-200 px-5 py-4"
+              />
+              {errors?.username && (
+                <div className="rounded-md border border-red-200 bg-red-100 px-5 py-3 text-red-800">
+                  {errors?.username?.message || 'ERROR!'}
+                </div>
+              )}
+
+              <input
+                type="text"
+                {...register('link_telegram', {
+                  required: 'Поле обязательно к заполнению',
+                  minLength: {
+                    value: 5,
+                    message: 'Минимум 5 символов',
+                  },
+                })}
+                name="link_telegram"
+                onChange={onChange}
+                id="link_telegram"
+                value={user.link_telegram}
+                placeholder="Ссылка на ваш телеграм"
+                className="my-2 block w-full rounded-md border border-secondary-200 px-5 py-4"
+              />
+              {errors?.link_telegram && (
+                <div className="rounded-md border border-red-200 bg-red-100 px-5 py-3 text-red-800">
+                  {errors?.link_telegram?.message || 'ERROR!'}
+                </div>
+              )}
+
+              <input
+                type="text"
+                {...register('link_vk', {
+                  required: 'Поле обязательно к заполнению',
+                  minLength: {
+                    value: 5,
+                    message: 'Минимум 5 символов',
+                  },
+                })}
+                name="link_vk"
+                onChange={onChange}
+                id="link_vk"
+                value={user.link_vk}
+                placeholder="Ссылка на ваш вк"
+                className="my-2 block w-full rounded-md border border-secondary-200 px-5 py-4"
+              />
+              {errors?.link_vk && (
+                <div className="rounded-md border border-red-200 bg-red-100 px-5 py-3 text-red-800">
+                  {errors?.link_vk?.message || 'ERROR!'}
+                </div>
+              )}
+
+              <input
+                type="date"
+                {...register('birthday', {
+                  required: 'Поле обязательно к заполнению',
+                  minLength: {
+                    value: 5,
+                    message: 'Минимум 5 символов',
+                  },
+                })}
+                name="birthday"
+                onChange={onChange}
+                id="birthday"
+                value={user.birthday}
+                placeholder="Дата рождения"
+                className="my-2 block w-full rounded-md border border-secondary-200 px-5 py-4"
+              />
+              {errors?.birthday && (
+                <div className="rounded-md border border-red-200 bg-red-100 px-5 py-3 text-red-800">
+                  {errors?.birthday?.message || 'ERROR!'}
+                </div>
+              )}
+
+              <input
+                type="text"
+                {...register('location', {
+                  required: 'Поле обязательно к заполнению',
+                  minLength: {
+                    value: 5,
+                    message: 'Минимум 5 символов',
+                  },
+                })}
+                name="location"
+                onChange={onChange}
+                id="location"
+                value={user.location}
+                placeholder="Где вы находитесь?"
+                className="my-2 block w-full rounded-md border border-secondary-200 px-5 py-4"
+              />
+              {errors?.location && (
+                <div className="rounded-md border border-red-200 bg-red-100 px-5 py-3 text-red-800">
+                  {errors?.location?.message || 'ERROR!'}
+                </div>
+              )}
+
+              <textarea
+                type="text"
+                {...register('about_me', {
+                  required: 'Поле обязательно к заполнению',
+                  minLength: {
+                    value: 5,
+                    message: 'Минимум 5 символов',
+                  },
+                })}
+                name="about_me"
+                onChange={onChange}
+                id="about_me"
+                value={user.about_me}
+                placeholder="Расскажите о себе?"
+                className="my-2 block w-full rounded-md border border-secondary-200 px-5 py-4"
+              />
+              {errors?.about_me && (
+                <div className="rounded-md border border-red-200 bg-red-100 px-5 py-3 text-red-800">
+                  {errors?.about_me?.message || 'ERROR!'}
                 </div>
               )}
 

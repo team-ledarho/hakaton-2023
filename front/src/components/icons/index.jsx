@@ -620,3 +620,65 @@ export const WatchStar = ({ className }) => {
     </svg>
   );
 };
+
+export const EditIcon = ({ className }) => {
+  return (
+    <svg
+      x="0px"
+      y="0px"
+      className={className}
+      viewBox="0 0 24 24"
+      style={{ fill: `#000000` }}
+    >
+      <path d="M 18.414062 2 C 18.158188 2 17.902031 2.0974687 17.707031 2.2929688 L 16 4 L 20 8 L 21.707031 6.2929688 C 22.098031 5.9019687 22.098031 5.2689063 21.707031 4.8789062 L 19.121094 2.2929688 C 18.925594 2.0974687 18.669937 2 18.414062 2 z M 14.5 5.5 L 3 17 L 3 21 L 7 21 L 18.5 9.5 L 14.5 5.5 z"></path>
+    </svg>
+  );
+};
+
+export const SaveIcon = ({ className }) => {
+  return (
+    <svg
+      x="0px"
+      y="0px"
+      viewBox="0 0 50 50"
+      className={className}
+      style={{ fill: '#1A1A1A' }}
+    >
+      <path d="M 41.9375 8.625 C 41.273438 8.648438 40.664063 9 40.3125 9.5625 L 21.5 38.34375 L 9.3125 27.8125 C 8.789063 27.269531 8.003906 27.066406 7.28125 27.292969 C 6.5625 27.515625 6.027344 28.125 5.902344 28.867188 C 5.777344 29.613281 6.078125 30.363281 6.6875 30.8125 L 20.625 42.875 C 21.0625 43.246094 21.640625 43.410156 22.207031 43.328125 C 22.777344 43.242188 23.28125 42.917969 23.59375 42.4375 L 43.6875 11.75 C 44.117188 11.121094 44.152344 10.308594 43.78125 9.644531 C 43.410156 8.984375 42.695313 8.589844 41.9375 8.625 Z"></path>
+    </svg>
+  );
+};
+
+export const LogoutIcon = ({ className }) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        {' '}
+        <path
+          d="M12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4"
+          stroke="#ffffff"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        ></path>{' '}
+        <path
+          d="M10 12H20M20 12L17 9M20 12L17 15"
+          stroke="#ffffff"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>{' '}
+      </g>
+    </svg>
+  );
+};

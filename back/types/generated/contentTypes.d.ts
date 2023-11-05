@@ -672,6 +672,8 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     link_telegram: Attribute.String;
     link_vk: Attribute.String;
     birthday: Attribute.Date;
+    location: Attribute.String;
+    about_me: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

@@ -1,0 +1,5 @@
+# Sitemap: 
+
+# https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap#addsitemap
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *

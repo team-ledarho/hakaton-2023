@@ -22,7 +22,7 @@ export const Banner = ({ info }) => {
       </div>
       <div className="-mt-20 flex flex-col items-center">
         <img
-          src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg"
+          src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg"
           className="w-40 rounded-full border-4 border-white"
         />
         <div className="mt-2 flex items-center space-x-2">
@@ -43,8 +43,6 @@ export const Banner = ({ info }) => {
             </svg>
           </span>
         </div>
-        <p className="text-gray-700">Frontend React Developer</p>
-        <p className="text-sm text-gray-500">Russia, Moscow</p>
       </div>
       <div className="mt-2 flex flex-1 flex-col items-center justify-end px-8 lg:items-end">
         <div className="mt-2 flex items-center space-x-4">

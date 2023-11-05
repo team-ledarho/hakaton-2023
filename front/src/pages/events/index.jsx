@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import { debounce } from 'lodash';
 import { Layout } from '@components/layout';
 import { Users } from '@components/icons';
+import ScrollToTopButton from '@components/scroll-up'
 import { useNavigate } from 'react-router-dom';
 
 export const Events = () => {
@@ -36,7 +37,7 @@ export const Events = () => {
 
   return (
     <Layout>
-      <section className="m-auto mb-24 max-w-screen-xl px-6 py-24" id="aboutUs">
+      <section className="m-auto mb-24 max-w-screen-xl px-6 py-24 relative" id="aboutUs">
         <div className="md:flex md:justify-between">
           <div className="text-lg text-gray-800 md:mb-4 md:text-xl">
             МЕРОПРИЯТИЯ
@@ -165,7 +166,7 @@ export const Events = () => {
               filteredEvents.map((event, index) => (
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
                 <div
-                  className="mx-auto mt-10 h-full max-w-6xl"
+                  className="mx-auto mt-10 h-full max-w-6xl cursor-pointer"
                   key={index}
                   onClick={() => navigate(`/events/${event.attributes.slug}`)}
                 >
@@ -335,6 +336,7 @@ export const Events = () => {
             </div>
           </div>
         </div>
+        <ScrollToTopButton to="aboutUs"/>
       </section>
     </Layout>
   );

@@ -11,7 +11,7 @@ export const Auth = ({ children }) => {
 
   if (isLoading) return <span></span>;
 
-  return children;
+  return user ? children : <Navigate to={paths.login} />;
 };
 
 /* 

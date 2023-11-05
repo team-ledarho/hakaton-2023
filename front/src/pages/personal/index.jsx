@@ -4,12 +4,14 @@ import { PersonalInfo } from '@components/personal/info';
 import { About } from '@components/personal/about';
 import { Subscribers } from '@components/personal/subscribers';
 import { useCurrentQuery } from '@services/auth/authQuery';
+import Header from '@components/landing/header';
 
 export const Personal = () => {
   const { data } = useCurrentQuery();
 
   return (
     <Layout>
+      <Header />
       <div className="m-auto h-full max-w-screen-xl py-8">
         <Banner info={data} />
 

@@ -5,5 +5,5 @@ export const paths = {
   personal: '/personal',
   settings: '/personal/settings',
   events: '/events',
-  eventpage: '/events/:slug'
+  eventpage: '/events/:slug',
 };

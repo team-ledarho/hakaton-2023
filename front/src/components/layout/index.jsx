@@ -3,14 +3,13 @@ import { Auth } from '@services/feature/auth.feature';
 import Cookie from '../cookie';
 
 export const Layout = ({ children }) => {
-  return ( 
+  return (
     <>
-    <Auth>
-      <Header />
-    </Auth>
-    <Cookie />
-    {children}
-
+      <Auth>
+        <Header />
+      </Auth>
+      <Cookie />
+      {children}
     </>
-    );
+  );
 };

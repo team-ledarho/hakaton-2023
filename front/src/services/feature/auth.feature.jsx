@@ -9,7 +9,7 @@ export const Auth = ({ children }) => {
 
   const user = useSelector(selectorUser);
 
-  if (isLoading) return (<span></span>);
+  if (isLoading) return <span></span>;
 
   return user ? children : <Navigate to={paths.login} />;
 };

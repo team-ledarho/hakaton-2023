@@ -1,4 +1,4 @@
-import  { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useGetAllEventsQuery } from '@services/events/eventsQuery';
 import dayjs from 'dayjs';
 import { debounce } from 'lodash';
@@ -20,7 +20,9 @@ export const Events = () => {
     return data?.data.filter((event) => {
       const eventDate = dayjs(event.attributes.start_date).format('YYYY-MM-DD');
       return (
-        event.attributes.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+        event.attributes.name
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase()) &&
         (!cityFilter || event.attributes.location === cityFilter) &&
         (!dateFilter || eventDate === dateFilter) &&
         (!formatFilter || event.attributes.format === formatFilter)
@@ -49,113 +51,133 @@ export const Events = () => {
           </span>{' '}
           ДЛЯ НОВЫХ ОТКРЫТИЙ
         </h2>
-        <hr className="mt-4 border-2 border-brand-dark rounded-xl" />
-        <div className="w-full mt-10 block md:hidden">
-            <div className="sticky top-5 w-full">
-              <div className="flex flex-col">
-                <div className="rounded-xl bg-white p-6 w-full">
-                  <form>
-                    <div className="relative mb-10 w-full flex items-center justify-between rounded-md">
-                      <svg
-                        className="absolute left-2 block h-5 w-5 text-gray-400"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+        <hr className="mt-4 rounded-xl border-2 border-brand-dark" />
+        <div className="mt-10 block w-full md:hidden">
+          <div className="sticky top-5 w-full">
+            <div className="flex flex-col">
+              <div className="w-full rounded-xl bg-white p-6">
+                <form>
+                  <div className="relative mb-10 flex w-full items-center justify-between rounded-md">
+                    <svg
+                      className="absolute left-2 block h-5 w-5 text-gray-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="11" cy="11" r="8" className=""></circle>
+                      <line
+                        x1="21"
+                        y1="21"
+                        x2="16.65"
+                        y2="16.65"
+                        className=""
+                      ></line>
+                    </svg>
+                    <input
+                      type="text"
+                      name="search"
+                      className="h-12 w-full cursor-text rounded-md border border-gray-100 bg-gray-100 py-4 pl-12 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                      placeholder="Поиск по названию"
+                      onChange={(e) => debouncedSearch(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="manufacturer"
+                        className="text-sm font-medium text-stone-600"
                       >
-                        <circle cx="11" cy="11" r="8" className=""></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" className=""></line>
-                      </svg>
+                        Город
+                      </label>
+                      <select
+                        value={cityFilter}
+                        onChange={(e) => setCityFilter(e.target.value)}
+                        id="manufacturer"
+                        className="mt-2 block w-full rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                      >
+                        <option>Москва</option>
+                        <option>Грозный</option>
+                      </select>
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="date"
+                        className="text-sm font-medium text-stone-600"
+                      >
+                        Дата
+                      </label>
                       <input
-                        type="text"
-                        name="search"
-                        className="h-12 w-full cursor-text rounded-md border border-gray-100 bg-gray-100 py-4 pl-12 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-                        placeholder="Поиск по названию"
-                        onChange={(e) => debouncedSearch(e.target.value)}
+                        onChange={(e) => setDateFilter(e.target.value)}
+                        value={dateFilter}
+                        type="date"
+                        id="date"
+                        className="mt-2 block w-full cursor-pointer rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                       />
                     </div>
 
-                    <div className="flex flex-col gap-4">
-                      <div className="flex flex-col">
-                        <label htmlFor="manufacturer" className="text-sm font-medium text-stone-600">
-                          Город
-                        </label>
-                        <select
-                          value={cityFilter}
-                          onChange={(e) => setCityFilter(e.target.value)}
-                          id="manufacturer"
-                          className="mt-2 block w-full rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-                        >
-                          <option>Москва</option>
-                          <option>Грозный</option>
-                        </select>
-                      </div>
-
-                      <div className="flex flex-col">
-                        <label htmlFor="date" className="text-sm font-medium text-stone-600">
-                          Дата
-                        </label>
-                        <input
-                          onChange={(e) => setDateFilter(e.target.value)}
-                          value={dateFilter}
-                          type="date"
-                          id="date"
-                          className="mt-2 block w-full cursor-pointer rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-                        />
-                      </div>
-
-                      <div className="flex flex-col">
-                        <label htmlFor="status" className="text-sm font-medium text-stone-600">
-                          Формат
-                        </label>
-                        <select
-                          value={formatFilter}
-                          onChange={(e) => setFormatFilter(e.target.value)}
-                          id="status"
-                          className="mt-2 block w-full cursor-pointer rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-                        >
-                          <option>Очное</option>
-                          <option>Удалённое</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div className="mt-6 grid w-full justify-end space-x-4 md:flex">
-                      <button
-                        className="rounded-lg bg-gray-200 px-8 py-2 font-medium text-gray-700 outline-none hover:opacity-80 focus:ring"
-                        onClick={() => {
-                          setCityFilter('');
-                          setDateFilter('');
-                          setFormatFilter('');
-                        }}
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="status"
+                        className="text-sm font-medium text-stone-600"
                       >
-                        Сбросить
-                      </button>
+                        Формат
+                      </label>
+                      <select
+                        value={formatFilter}
+                        onChange={(e) => setFormatFilter(e.target.value)}
+                        id="status"
+                        className="mt-2 block w-full cursor-pointer rounded-md border border-gray-100 bg-gray-100 px-2 py-2 shadow-sm outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                      >
+                        <option>Очное</option>
+                        <option>Удалённое</option>
+                      </select>
                     </div>
-                  </form>
-                </div>
+                  </div>
+
+                  <div className="mt-6 grid w-full justify-end space-x-4 md:flex">
+                    <button
+                      className="rounded-lg bg-gray-200 px-8 py-2 font-medium text-gray-700 outline-none hover:opacity-80 focus:ring"
+                      onClick={() => {
+                        setCityFilter('');
+                        setDateFilter('');
+                        setFormatFilter('');
+                      }}
+                    >
+                      Сбросить
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-        <div className="mt-4 relative flex flex-row gap-4">
-          <div className="flex flex-col w-full md:w-[60%]">
+        </div>
+        <div className="relative mt-4 flex flex-row gap-4">
+          <div className="flex w-full flex-col md:w-[60%]">
             {data &&
               filteredEvents.map((event, index) => (
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-                <div className="max-w-6xl mx-auto h-full mt-10" key={index} onClick={() => navigate(`/events/${event.attributes.slug}`)}>
-                  <article className="mx-auto md:max-w-none gap-4 items-center flex flex-col">
+                <div
+                  className="mx-auto mt-10 h-full max-w-6xl"
+                  key={index}
+                  onClick={() => navigate(`/events/${event.attributes.slug}`)}
+                >
+                  <article className="mx-auto flex flex-col items-center gap-4 md:max-w-none">
                     <figure className="relative">
                       <img
-                        className="w-full h-[300px] object-cover rounded-lg"
+                        className="h-[300px] w-full rounded-lg object-cover"
                         src={
                           !event.attributes.photo.data
                             ? `https://preview.cruip.com/open-pro/images/blog-post-01.jpg`
-                            : import.meta.env.VITE_STRAPI_URL + event.attributes.photo.data?.attributes.url
+                            : import.meta.env.VITE_STRAPI_URL +
+                              event.attributes.photo.data?.attributes.url
                         }
                         width="540"
                         height="303"
@@ -165,10 +187,10 @@ export const Events = () => {
                     <div>
                       <header>
                         <div className="mb-3">
-                          <ul className="flex flex-wrap text-xs font-medium -m-1">
+                          <ul className="-m-1 flex flex-wrap text-xs font-medium">
                             <li className="m-1">
                               <a
-                                className="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out"
+                                className="inline-flex rounded-full bg-purple-600 px-3 py-1 text-center text-gray-100 transition duration-150 ease-in-out hover:bg-purple-700"
                                 href="#0"
                               >
                                 {event.attributes.format}
@@ -176,7 +198,7 @@ export const Events = () => {
                             </li>
                             <li className="m-1">
                               <a
-                                className="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out"
+                                className="inline-flex rounded-full bg-blue-500 px-3 py-1 text-center text-gray-100 transition duration-150 ease-in-out hover:bg-blue-600"
                                 href="#0"
                               >
                                 {event.attributes.location}
@@ -184,27 +206,33 @@ export const Events = () => {
                             </li>
                           </ul>
                         </div>
-                        <h3 className="text-xl lg:text-2xl font-bold leading-tight mb-2 line-clamp-3">
-                            {event.attributes.name}
+                        <h3 className="mb-2 line-clamp-3 text-xl font-bold leading-tight lg:text-2xl">
+                          {event.attributes.name}
                         </h3>
                       </header>
-                      <p className="text-lg text-gray-400 flex-grow overflow-hidden line-clamp-3">{event.attributes.description}</p>
-                      <footer className="flex items-center mt-4 flex-row">
+                      <p className="line-clamp-3 flex-grow overflow-hidden text-lg text-gray-400">
+                        {event.attributes.description}
+                      </p>
+                      <footer className="mt-4 flex flex-row items-center">
                         <Users className="h-6 w-6" />
-                        <span className="text-gray-700 ml-4 mr-2">230 - </span>
-                        <span className="text-gray-500">{dayjs(event.attributes.start_date).format("MMMM D, HH:mm")}</span>
+                        <span className="ml-4 mr-2 text-gray-700">230 - </span>
+                        <span className="text-gray-500">
+                          {dayjs(event.attributes.start_date).format(
+                            'MMMM D, HH:mm',
+                          )}
+                        </span>
                       </footer>
                     </div>
                   </article>
                 </div>
               ))}
           </div>
-          <div className="max-w-[30%] mt-10 hidden md:block">
+          <div className="mt-10 hidden max-w-[30%] md:block">
             <div className="sticky top-5 w-full">
               <div className="flex flex-col">
-                <div className="rounded-xl bg-white p-6 w-[35vw]">
+                <div className="w-[35vw] rounded-xl bg-white p-6">
                   <form>
-                    <div className="relative mb-10 w-full flex items-center justify-between rounded-md">
+                    <div className="relative mb-10 flex w-full items-center justify-between rounded-md">
                       <svg
                         className="absolute left-2 block h-5 w-5 text-gray-400"
                         xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +246,13 @@ export const Events = () => {
                         strokeLinejoin="round"
                       >
                         <circle cx="11" cy="11" r="8" className=""></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" className=""></line>
+                        <line
+                          x1="21"
+                          y1="21"
+                          x2="16.65"
+                          y2="16.65"
+                          className=""
+                        ></line>
                       </svg>
                       <input
                         type="text"
@@ -231,7 +265,10 @@ export const Events = () => {
 
                     <div className="flex flex-col gap-4">
                       <div className="flex flex-col">
-                        <label htmlFor="manufacturer" className="text-sm font-medium text-stone-600">
+                        <label
+                          htmlFor="manufacturer"
+                          className="text-sm font-medium text-stone-600"
+                        >
                           Город
                         </label>
                         <select
@@ -246,7 +283,10 @@ export const Events = () => {
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="date" className="text-sm font-medium text-stone-600">
+                        <label
+                          htmlFor="date"
+                          className="text-sm font-medium text-stone-600"
+                        >
                           Дата
                         </label>
                         <input
@@ -259,7 +299,10 @@ export const Events = () => {
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="status" className="text-sm font-medium text-stone-600">
+                        <label
+                          htmlFor="status"
+                          className="text-sm font-medium text-stone-600"
+                        >
                           Формат
                         </label>
                         <select

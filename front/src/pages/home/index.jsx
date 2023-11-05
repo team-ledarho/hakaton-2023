@@ -4,7 +4,6 @@ import Technologies from '@components/landing/Technologies';
 import Footer from '@components/landing/footer';
 import Partners from '@components/landing/Partners';
 import AboutUs from '@components/landing/aboutUs';
-import Header from '@components/landing/header';
 
 export const HomePage = () => {
   const questions = [
@@ -32,7 +31,6 @@ export const HomePage = () => {
 
   return (
     <Layout>
-      <Header />
       <head>
         <title>Зарзар</title>
         <meta

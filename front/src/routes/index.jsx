@@ -12,21 +12,15 @@ import { Auth } from '@services/feature/auth.feature';
 export const router = createBrowserRouter([
   {
     path: paths.home,
-    element: (
-    <HomePage />
-    ),
+    element: <HomePage />,
   },
   {
     path: paths.login,
-    element: (
-        <Login />
-    ),
+    element: <Login />,
   },
   {
     path: paths.register,
-    element: (
-        <Register />
-    ),
+    element: <Register />,
   },
   {
     path: paths.personal,
@@ -46,14 +40,10 @@ export const router = createBrowserRouter([
   },
   {
     path: paths.events,
-    element: (
-        <Events />
-    ),
+    element: <Events />,
   },
   {
     path: paths.eventpage,
-    element: (
-        <EventPage />
-    ),
+    element: <EventPage />,
   },
 ]);

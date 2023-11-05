@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useCurrentQuery, useUpdateMutation } from '@services/auth/authQuery';
 import { EditIcon, SaveIcon } from '../../icons';
+import toast from 'react-hot-toast';
 
 export const About = () => {
   const [onUpdate] = useUpdateMutation();
   const { data } = useCurrentQuery();
 
-  console.log(data)
   const [profile, setProfile] = useState({
     id: data.id,
     about_me: data.about_me,
@@ -28,47 +28,60 @@ export const About = () => {
 
   const onSubmit = async () => {
     try {
-      await onUpdate(profile)
-        .unwrap()
-        .then((updateData) => {
-          setEdit((prev) => !prev);
-          setUser(updateData);
-        });
+      await toast.promise(
+        onUpdate(profile)
+          .unwrap()
+          .then((updateData) => {
+            setEdit((prev) => !prev);
+            setUser(updateData);
+          }),
+        {
+          loading: 'Загрузка...',
+          success: <b>Данные успешно обновлены!</b>,
+          error: <b>Ошибка обновлении данных</b>,
+        },
+      );
     } catch (error) {
-      alert('Прикрутить тостеры!');
+      toast.error('Что-то пошло не так');
     }
   };
 
   return (
-      <>
-          {data && (
-      <div className="flex-1 rounded-lg bg-white p-8 shadow-xl">
-      <div className="flex items-center justify-between">
-        <h4 className="text-xl font-bold text-gray-900">О себе</h4>
-        <div className="flex gap-5">
-          {edit && (
-            <button onClick={() => onSubmit()}>
-              <SaveIcon className="h-5 w-5 cursor-pointer" />
-            </button>
-          )}
-          {data.id === profile.id && (
-            <button onClick={onEdit}>
-              <EditIcon className="h-5 w-5 cursor-pointer" />
-            </button>
+    <>
+      {data && (
+        <div className="flex-1 rounded-lg bg-white p-8 shadow-xl">
+          <div className="flex items-center justify-between">
+            <h4 className="text-xl font-bold text-gray-900">О себе</h4>
+            <div className="flex gap-5">
+              {edit && (
+                <button onClick={() => onSubmit()}>
+                  <SaveIcon className="h-5 w-5 cursor-pointer" />
+                </button>
+              )}
+              {data.id === profile.id && (
+                <button onClick={onEdit}>
+                  <EditIcon className="h-5 w-5 cursor-pointer" />
+                </button>
+              )}
+            </div>
+          </div>
+          {edit ? (
+            <textarea
+              value={profile.about_me}
+              onChange={onChange}
+              name="about_me"
+              className="my-4 w-full rounded-lg border-gray-300 bg-transparent px-4 py-1 text-gray-900 focus:outline-none"
+            />
+          ) : (
+            <p
+              style={{ color: user.about_me === null && '#929191' }}
+              className="mt-2 text-gray-700"
+            >
+              {user.about_me === null ? 'Не заполнено' : user.about_me}
+            </p>
           )}
         </div>
-      </div>
-      {edit ? (
-        <textarea
-          value={profile.about_me}
-          onChange={onChange}
-          name="about_me"
-          className="my-4 w-full rounded-lg border-gray-300 bg-transparent px-4 py-1 text-gray-900 focus:outline-none"
-        />
-      ) : (
-        <p className="mt-2 text-gray-700">{user.about_me}</p>
       )}
-    </div>)}
     </>
   );
 };

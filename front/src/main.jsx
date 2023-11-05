@@ -15,6 +15,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import localeData from 'dayjs/plugin/localeData';
 import ruLocale from 'dayjs/locale/ru';
 import dayjs from 'dayjs';
+import { Toaster } from 'react-hot-toast';
 
 dayjs.extend(customParseFormat);
 dayjs.extend(localeData);
@@ -75,5 +76,6 @@ i18next
 root.render(
   <Provider store={store}>
     <RouterProvider router={router} />
+    <Toaster />
   </Provider>,
 );

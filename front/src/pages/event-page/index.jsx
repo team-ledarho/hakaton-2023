@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import dayjs from 'dayjs';
 import Comment from '@components/comment';
 import ButtonShared from '@components/button-shared'
+import Header from '@components/landing/header';
 
 export const EventPage = () => {
   const params = useParams();
@@ -11,6 +12,7 @@ export const EventPage = () => {
 
   return (
     <Layout>
+      <Header/>
       {data && (
         <section className="relative mx-auto mb-20 max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
           <article>

@@ -1,7 +1,8 @@
 module.exports = {
   rest: {
-    defaultLimit: 25,
-    maxLimit: 100,
+    defaultLimit: 100,
+    maxLimit: 150,
     withCount: true,
+    baseURL: 'https://zarzar-backend.duckdns.org'
   },
 };

@@ -3,6 +3,7 @@ import { useGetOneQuery } from '@services/events/eventsQuery';
 import { useParams } from 'react-router-dom';
 import dayjs from 'dayjs';
 import Comment from '@components/comment';
+import ButtonShared from '@components/button-shared'
 
 export const EventPage = () => {
   const params = useParams();
@@ -53,21 +54,7 @@ export const EventPage = () => {
                     <p>{data.data[0].attributes.description}</p>
                   </div>
                   <div className="pb-6 pt-6 text-sm text-gray-700">
-                    <a
-                      target="_blank"
-                      rel="nofollow noreferrer"
-                      href="https://mobile.twitter.com/search?q=https%3A%2F%2Ftailwind-nextjs-starter-blog.vercel.app%2Fblog%2Frelease-of-tailwind-nextjs-starter-blog-v2.0"
-                    >
-                      Discuss on Twitter
-                    </a>{' '}
-                    •{' '}
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/main/data/blog/release-of-tailwind-nextjs-starter-blog-v2.0.mdx"
-                    >
-                      View on GitHub
-                    </a>
+                    <ButtonShared />
                   </div>
                   <div
                     className="pb-6 pt-6 text-center text-gray-700"

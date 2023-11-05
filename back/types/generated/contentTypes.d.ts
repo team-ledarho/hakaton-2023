@@ -389,11 +389,22 @@ export interface ApiEventsEvents extends Schema.CollectionType {
     slug: Attribute.UID<'api::events.events', 'name'>;
     format: Attribute.String &
       Attribute.Required &
-      Attribute.DefaultTo<'\u041C\u0435\u0440\u043E\u043F\u0440\u0438\u044F\u0442\u0438\u0435'>;
+      Attribute.DefaultTo<'\u041E\u0447\u043D\u043E\u0435'>;
     location: Attribute.String & Attribute.Required;
     location_iframe: Attribute.String;
     start_date: Attribute.DateTime;
     end_data: Attribute.DateTime;
+    photo: Attribute.Media & Attribute.Required;
+    organizer_name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
+    subscribers: Attribute.Relation<
+      'api::events.events',
+      'oneToMany',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -674,6 +685,13 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     birthday: Attribute.Date;
     location: Attribute.String;
     about_me: Attribute.Text;
+    visited_events: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
+    reputation: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
+    event: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToOne',
+      'api::events.events'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

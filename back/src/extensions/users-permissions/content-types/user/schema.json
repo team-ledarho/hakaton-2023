@@ -92,6 +92,20 @@
     },
     "about_me": {
       "type": "text"
+    },
+    "visited_events": {
+      "type": "biginteger",
+      "default": "0"
+    },
+    "reputation": {
+      "type": "biginteger",
+      "default": "0"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::events.events",
+      "inversedBy": "subscribers"
     }
   }
 }

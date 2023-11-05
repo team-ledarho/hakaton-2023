@@ -4,6 +4,7 @@ import Technologies from '@components/landing/Technologies';
 import Footer from '@components/landing/footer';
 import Partners from '@components/landing/Partners';
 import AboutUs from '@components/landing/aboutUs';
+import Header from '@components/landing/header';
 
 export const HomePage = () => {
   const questions = [
@@ -31,6 +32,7 @@ export const HomePage = () => {
 
   return (
     <Layout>
+      <Header />
       <head>
         <title>Зарзар</title>
         <meta
@@ -251,7 +253,7 @@ export const HomePage = () => {
 
             <footer className="mt-8 flex justify-center md:justify-start">
               <span
-                className="block w-fit rounded-full bg-white px-9 py-4
+                className="block w-fit cursor-pointer rounded-full bg-white px-9 py-4
             font-bold text-black transition-colors hover:bg-brand-green hover:text-white"
               >
                 ПОЛУЧИТЬ

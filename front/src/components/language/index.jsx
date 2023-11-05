@@ -23,7 +23,7 @@ const SelectLanguage = () => {
 
   return (
     <select
-      className="duration-250 rounded-md border border-gray-200 bg-green-600 font-semibold text-white shadow-sm transition hover:border-gray-500 hover:text-opacity-80 hover:shadow-md active:text-opacity-80 p-1 md:p-2 text-sm md:text-base"
+      className="duration-250 rounded-md border border-gray-200 bg-green-600 p-1 text-sm font-semibold text-white shadow-sm transition hover:border-gray-500 hover:text-opacity-80 hover:shadow-md active:text-opacity-80 md:p-2 md:text-base"
       onChange={handleLanguageChange}
       value={selectedLanguage} // Устанавливаем выбранное значение
     >

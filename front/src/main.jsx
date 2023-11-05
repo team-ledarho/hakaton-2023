@@ -32,7 +32,7 @@ dayjs.locale({
     'Сентября',
     'Октября',
     'Ноября',
-    'Декабря'
+    'Декабря',
   ],
   monthsShort: [
     'Янв',
@@ -46,8 +46,8 @@ dayjs.locale({
     'Сен',
     'Окт',
     'Ноя',
-    'Дек'
-  ]
+    'Дек',
+  ],
 });
 
 const container = document.querySelector('#root');

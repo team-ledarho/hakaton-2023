@@ -78,37 +78,37 @@ const Header = () => {
             </a>
           </nav>
 
-          <nav className="md:basis-1/4 flex items-center justify-end">
+          <nav className="flex items-center justify-end md:basis-1/4">
             <SelectLanguage />
             <a
               className="ml-2 rounded-md bg-green-600 px-6 py-2 text-xs text-white md:px-8 md:py-2 md:text-base"
-              href={ user ? '/personal' : '/register'}
+              href={user ? '/personal' : '/register'}
             >
               Войти
             </a>
 
-          <button
-            onClick={toggleMenu}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-secondary-500 md:hidden"
-            aria-expanded={isMenuOpen}
-          >
-            <span className="sr-only">Открыть меню</span>
-            <svg
-              className="h-5 w-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
+            <button
+              onClick={toggleMenu}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-secondary-500 md:hidden"
+              aria-expanded={isMenuOpen}
             >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
+              <span className="sr-only">Открыть меню</span>
+              <svg
+                className="h-5 w-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 17 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            </button>
           </nav>
 
           {isMenuOpen && (

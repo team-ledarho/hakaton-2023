@@ -12,7 +12,7 @@ export const eventsApi = api.injectEndpoints({
       query: (slug) => ({
         url: `/events-api?filters[slug][$eq]=${slug}&populate=*`,
         method: 'GET',
-      })
+      }),
     }),
     // authOnEvent: builder.mutation({
     //   query: (userData) => ({
@@ -24,8 +24,7 @@ export const eventsApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetAllEventsQuery, useGetOneQuery } =
-  eventsApi;
+export const { useGetAllEventsQuery, useGetOneQuery } = eventsApi;
 
 export const {
   endpoints: { getAllEvents, getOne },

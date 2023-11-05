@@ -12,7 +12,7 @@ export const store = configureStore({
     [authApi.reducerPath]: authApi.reducer,
     [eventsApi.reducerPath]: eventsApi.reducer,
     auth,
-    events
+    events,
   },
   middleware: (getDefaultMidddleware) =>
     getDefaultMidddleware()

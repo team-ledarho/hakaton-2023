@@ -10,10 +10,12 @@ export const eventsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addMatcher(eventsApi.endpoints.getAllEvents.matchFulfilled, (state, action) => {
+    builder.addMatcher(
+      eventsApi.endpoints.getAllEvents.matchFulfilled,
+      (state, action) => {
         state.events = action.payload;
-      })
+      },
+    );
   },
 });
 

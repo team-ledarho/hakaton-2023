@@ -3,17 +3,21 @@ import SelectLanguage from '@components/language';
 import { useTranslation } from 'react-i18next';
 import { selectorUser } from '../../../services/slices/authSlice';
 import { useSelector } from 'react-redux';
+import { useCurrentQuery } from '../../../services/auth/authQuery';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const user = useSelector(selectorUser);
+  const { data } = useCurrentQuery();
+  console.log(data, 'hg');
 
   const { t } = useTranslation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   return (
     <>
       <header className="bg-secondary-100 px-5 py-8">
@@ -82,9 +86,9 @@ const Header = () => {
             <SelectLanguage />
             <a
               className="ml-2 rounded-md bg-green-600 px-6 py-2 text-xs text-white md:px-8 md:py-2 md:text-base"
-              href={user ? '/personal' : '/register'}
+              href={user ? '/personal' : '/login'}
             >
-              Войти
+              {user ? 'Аккаунт' : 'Войти'}
             </a>
 
             <button
@@ -144,6 +148,12 @@ const Header = () => {
                     onClick={toggleMenu}
                     href="/#aboutUs"
                   >
+                    <a
+                      className="block pb-6 hover:text-gray-500"
+                      href="/events"
+                    >
+                      Мероприятия
+                    </a>
                     Про нас
                   </a>
                   <a

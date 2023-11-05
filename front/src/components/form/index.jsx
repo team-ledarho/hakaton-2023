@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {
   useLoginMutation,
@@ -7,6 +7,7 @@ import {
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { paths } from '../../paths';
+import toast from 'react-hot-toast';
 
 const initialUserLogin = { password: '', identifier: '' };
 const initialUserRegister = {
@@ -21,12 +22,19 @@ const initialUserRegister = {
 };
 
 export const Form = ({ type }) => {
+  const [typeAuth, setTypeAuth] = useState(type);
   const [user, setUser] = useState(
-    type === 'login' ? initialUserLogin : initialUserRegister,
+    typeAuth === 'login' ? initialUserLogin : initialUserRegister,
   );
   const [onLogin] = useLoginMutation();
   const [onRegister] = useRegisterMutation();
   const navigate = useNavigate();
+
+  console.log(type);
+
+  useEffect(() => {
+    setTypeAuth(type);
+  }, [type, typeAuth]);
 
   const {
     register,
@@ -44,21 +52,33 @@ export const Form = ({ type }) => {
 
   const onSubmit = async (data) => {
     try {
-      (await type) === 'login'
-        ? onLogin(data)
-            .unwrap()
-            .then(() => {
+      (await typeAuth) === 'login'
+        ? toast.promise(
+            onLogin(data)
+              .unwrap()
+              .then(() => {
+                reset();
+                navigate(paths.home);
+              }),
+            {
+              loading: 'Загрузка...',
+              success: <b>Вы вошли в аккаунт!</b>,
+              error: <b>Ошибка авторизации</b>,
+            },
+          )
+        : toast.promise(
+            onRegister(data).then(() => {
               reset();
-              navigate(paths.home);
-            })
-        : onRegister(data)
-            .unwrap()
-            .then(() => {
-              reset();
-              navigate(paths.home);
-            });
+              navigate(paths.login);
+            }),
+            {
+              loading: 'Загрузка...',
+              success: <b>Перенаправляем!</b>,
+              error: <b>Ошибка авторизации</b>,
+            },
+          );
     } catch (error) {
-      alert('Прикрутить тостер!');
+      toast.error('Что-то пошло не так');
     }
   };
 
@@ -72,12 +92,12 @@ export const Form = ({ type }) => {
 
   return (
     <>
-      <main className="m-auto min-h-[70vh] max-w-screen-xl px-6 pt-10 mb-20">
+      <main className="m-auto mb-20 min-h-[70vh] max-w-screen-xl px-6 pt-10">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="m-auto mt-2 flex max-w-lg flex-col gap-4"
         >
-          {type === 'login' ? (
+          {typeAuth === 'login' ? (
             <>
               <h1 className="m-auto text-center text-4xl font-bold md:text-6xl">
                 Вход
@@ -231,7 +251,7 @@ export const Form = ({ type }) => {
                 </div>
               )}
 
-              <input
+              {/* <input
                 type="text"
                 {...register('link_telegram', {
                   required: 'Поле обязательно к заполнению',
@@ -273,7 +293,7 @@ export const Form = ({ type }) => {
                 <div className="rounded-md border border-red-200 bg-red-100 px-5 py-3 text-red-800">
                   {errors?.link_vk?.message || 'ERROR!'}
                 </div>
-              )}
+              )} */}
 
               <input
                 type="date"
@@ -296,7 +316,7 @@ export const Form = ({ type }) => {
                   {errors?.birthday?.message || 'ERROR!'}
                 </div>
               )}
-
+              {/* 
               <input
                 type="text"
                 {...register('location', {
@@ -339,7 +359,7 @@ export const Form = ({ type }) => {
                 <div className="rounded-md border border-red-200 bg-red-100 px-5 py-3 text-red-800">
                   {errors?.about_me?.message || 'ERROR!'}
                 </div>
-              )}
+              )} */}
 
               <button
                 type="submit"

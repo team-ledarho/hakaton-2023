@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../../services/slices/authSlice';
+import { logout } from '@services/slices/authSlice';
 import { LogoutIcon } from '../../icons';
+import toast from 'react-hot-toast';
 
 export const Banner = ({ info }) => {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ export const Banner = ({ info }) => {
 
   const onLogout = () => {
     dispatch(logout());
+    toast.success('Вы вышли из аккаунта');
   };
 
   return (

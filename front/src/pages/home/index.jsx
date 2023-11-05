@@ -4,6 +4,7 @@ import Technologies from '@components/landing/Technologies';
 import Footer from '@components/landing/footer';
 import Partners from '@components/landing/Partners';
 import AboutUs from '@components/landing/aboutUs';
+import Header from '@components/landing/header';
 
 export const HomePage = () => {
   const questions = [
@@ -11,7 +12,7 @@ export const HomePage = () => {
       title: 'Какие преимущества регистрации на вашем сайте?',
       answer:
         'Регистрация на нашем сайте дает вам доступ к удобной системе поиска мероприятий, возможности получать уведомления о будущих событиях, а также легкости и безопасности оплаты. Вы также сможете сохранить историю посещенных мероприятий и управлять своими билетами в одном месте.',
-    },
+  },
     {
       title: 'В чем основное предназначение вашего сайта?',
       answer:
@@ -31,6 +32,7 @@ export const HomePage = () => {
 
   return (
     <Layout>
+      <Header />
       <head>
         <title>Зарзар</title>
         <meta

@@ -5,9 +5,6 @@ import Cookie from '../cookie';
 export const Layout = ({ children }) => {
   return (
     <>
-      <Auth>
-        <Header />
-      </Auth>
       <Cookie />
       {children}
     </>

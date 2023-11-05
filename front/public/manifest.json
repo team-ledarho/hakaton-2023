@@ -1,0 +1,17 @@
+{
+  "theme_color": "#0092FF",
+  "background_color": "#93cbf4",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "ваша ссылка",
+  "short_name": "ZARZAR - поиск мероприятий",
+  "description": "Выбор мероприятия по интересу и месту",
+  "name": "ZARZAR",
+  "icons": [
+      {
+          "src": "/favicon.svg",
+          "sizes": "192x192",
+          "type": "svg"
+      }
+  ]
+}

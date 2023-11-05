@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { EditIcon, SaveIcon } from '../../icons';
-import moment from 'moment';
 import { useUpdateMutation } from '@services/auth/authQuery';
 import { useSelector } from 'react-redux';
 import { selectorUser } from '../../../services/slices/authSlice';
+import dayjs from 'dayjs';
 
 export const PersonalInfo = ({ info }) => {
   const [edit, setEdit] = useState(false);
@@ -31,10 +31,9 @@ export const PersonalInfo = ({ info }) => {
     }));
   };
 
-  const parsedDate = moment(user.birthday);
-  const formatFullDate = (date) => {
-    return date.format('LL');
-  };
+  const parsedDate = dayjs(user.birthday).format(
+    'D MMMM',
+  );
 
   const onSubmit = async () => {
     try {
@@ -50,6 +49,7 @@ export const PersonalInfo = ({ info }) => {
   };
 
   return (
+    <>
     <div className="flex w-full flex-col 2xl:w-1/3">
       <div className="flex-1 rounded-lg bg-white p-8 shadow-xl">
         <div className="flex items-center justify-between">
@@ -69,7 +69,7 @@ export const PersonalInfo = ({ info }) => {
         </div>
         <ul className="mt-2 text-gray-700">
           <li className="flex h-12 items-center border-y py-2">
-            <span className="flex h-full w-24 items-center font-bold">
+            <span className="flex h-full w-44 items-center font-bold">
               Имя:
             </span>
             {edit ? (
@@ -87,7 +87,7 @@ export const PersonalInfo = ({ info }) => {
             )}
           </li>
           <li className="min-h-12 flex h-full items-center border-y py-2">
-            <span className="flex h-full w-24 items-center font-bold">
+            <span className="flex h-full w-44 items-center font-bold">
               Дата рождения:
             </span>
             {edit ? (
@@ -103,12 +103,12 @@ export const PersonalInfo = ({ info }) => {
               </span>
             ) : (
               <span className="text-gray-700">
-                {formatFullDate(parsedDate)}
+                {parsedDate}
               </span>
             )}
           </li>
           <li className="flex h-12 items-center border-y py-2">
-            <span className="flex h-full w-24 items-center font-bold">
+            <span className="flex h-full w-44 items-center font-bold">
               Телеграм:
             </span>
             {edit ? (
@@ -126,7 +126,7 @@ export const PersonalInfo = ({ info }) => {
             )}
           </li>
           <li className="flex h-12 items-center border-y py-2">
-            <span className="flex h-full w-24 items-center font-bold">Вк:</span>
+            <span className="flex h-full w-44 items-center font-bold">Вк:</span>
             {edit ? (
               <span>
                 <input
@@ -142,7 +142,7 @@ export const PersonalInfo = ({ info }) => {
             )}
           </li>
           <li className="flex h-12 items-center border-y py-2">
-            <span className="flex h-full w-24 items-center font-bold">
+            <span className="flex h-full w-44 items-center font-bold">
               Локация:
             </span>
             {edit ? (
@@ -161,7 +161,7 @@ export const PersonalInfo = ({ info }) => {
           </li>
 
           <li className="flex items-center space-x-2 border-b py-2">
-            <span className="flex w-24 items-center font-bold">Для связи:</span>
+            <span className="flex w-44 items-center font-bold">Для связи:</span>
             <a href="#" title="Facebook">
               <svg
                 className="h-5 w-5"
@@ -239,5 +239,6 @@ export const PersonalInfo = ({ info }) => {
         </ul>
       </div>
     </div>
+    </>
   );
 };

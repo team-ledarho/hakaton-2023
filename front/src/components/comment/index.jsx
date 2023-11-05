@@ -62,13 +62,13 @@ const Comment = () => {
                 </div>
 
                 <span className="block text-sm text-gray-500">
-                  Bases on 27 reviews
+                Основано на 27 отзывах
                 </span>
 
                 <div className="my-5 flex flex-col gap-2 border-b border-t py-5">
                   <div className="flex items-center gap-3">
                     <span className="w-10 whitespace-nowrap text-right text-sm text-gray-600">
-                      5 Star
+                      5 Звёзд
                     </span>
 
                     <div className="flex h-4 flex-1 overflow-hidden rounded bg-gray-200">
@@ -78,7 +78,7 @@ const Comment = () => {
 
                   <div className="flex items-center gap-3">
                     <span className="w-10 whitespace-nowrap text-right text-sm text-gray-600">
-                      4 Star
+                      4 Звёзд
                     </span>
 
                     <div className="flex h-4 flex-1 overflow-hidden rounded bg-gray-200">
@@ -88,7 +88,7 @@ const Comment = () => {
 
                   <div className="flex items-center gap-3">
                     <span className="w-10 whitespace-nowrap text-right text-sm text-gray-600">
-                      3 Star
+                      3 Звёзд
                     </span>
 
                     <div className="flex h-4 flex-1 overflow-hidden rounded bg-gray-200">
@@ -98,7 +98,7 @@ const Comment = () => {
 
                   <div className="flex items-center gap-3">
                     <span className="w-10 whitespace-nowrap text-right text-sm text-gray-600">
-                      2 Star
+                      2 Звёзд
                     </span>
 
                     <div className="flex h-4 flex-1 overflow-hidden rounded bg-gray-200">
@@ -108,7 +108,7 @@ const Comment = () => {
 
                   <div className="flex items-center gap-3">
                     <span className="w-10 whitespace-nowrap text-right text-sm text-gray-600">
-                      1 Star
+                      1 Звёзд
                     </span>
 
                     <div className="flex h-4 flex-1 overflow-hidden rounded bg-gray-200">
@@ -121,7 +121,7 @@ const Comment = () => {
                   href="#"
                   className="block rounded-lg border bg-white px-4 py-2 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base"
                 >
-                  Write a review
+                  Написать отзыв
                 </a>
               </div>
             </div>
@@ -129,7 +129,7 @@ const Comment = () => {
             <div className="lg:col-span-2">
               <div className="border-b pb-4 md:pb-6">
                 <h2 className="text-lg font-bold text-gray-800 lg:text-xl">
-                  Top Reviews
+                  Последние отзывы
                 </h2>
               </div>
 
@@ -137,10 +137,10 @@ const Comment = () => {
                 <div className="flex flex-col gap-3 py-4 md:py-8">
                   <div>
                     <span className="block text-sm font-bold">
-                      John McCulling
+                      Мохьмад Сатуев
                     </span>
                     <span className="block text-sm text-gray-500">
-                      August 28, 2021
+                      Август 28, 2021
                     </span>
                   </div>
 
@@ -192,19 +192,15 @@ const Comment = () => {
                   </div>
 
                   <p className="text-gray-600">
-                    This is a section of some simple filler text, also known as
-                    placeholder text. It shares some characteristics of a real
-                    written text but is random or otherwise generated. It may be
-                    used to display a sample of fonts or generate text for
-                    testing.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quod minima voluptatibus assumenda harum est corporis, nobis alias tenetur id eaque esse atque illo. Amet molestias itaque ratione sit aperiam, enim saepe sint.
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-3 py-4 md:py-8">
                   <div>
-                    <span className="block text-sm font-bold">Kate Berg</span>
+                    <span className="block text-sm font-bold">Мохьмад Чергизбиев</span>
                     <span className="block text-sm text-gray-500">
-                      July 21, 2021
+                      Июнь 21, 2021
                     </span>
                   </div>
 
@@ -256,21 +252,17 @@ const Comment = () => {
                   </div>
 
                   <p className="text-gray-600">
-                    This is a section of some simple filler text, also known as
-                    placeholder text. It shares some characteristics of a real
-                    written text but is random or otherwise generated. It may be
-                    used to display a sample of fonts or generate text for
-                    testing.
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, voluptates nostrum! Vero eius error laboriosam saepe numquam voluptatibus temporibus voluptatem dolorem quia.
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-3 py-4 md:py-8">
                   <div>
                     <span className="block text-sm font-bold">
-                      Greg Jackson
+                      Ахьмад Бахметмурзаев
                     </span>
                     <span className="block text-sm text-gray-500">
-                      March 16, 2021
+                      Март 16, 2021
                     </span>
                   </div>
 
@@ -322,11 +314,7 @@ const Comment = () => {
                   </div>
 
                   <p className="text-gray-600">
-                    This is a section of some simple filler text, also known as
-                    placeholder text. It shares some characteristics of a real
-                    written text but is random or otherwise generated. It may be
-                    used to display a sample of fonts or generate text for
-                    testing.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, et?
                   </p>
                 </div>
               </div>
@@ -336,7 +324,7 @@ const Comment = () => {
                   href="#"
                   className="flex items-center gap-0.5 font-semibold text-indigo-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                 >
-                  Read all reviews
+                  Ещё отзывы
                 </a>
               </div>
             </div>

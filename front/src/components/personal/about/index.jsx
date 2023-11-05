@@ -6,6 +6,7 @@ export const About = () => {
   const [onUpdate] = useUpdateMutation();
   const { data } = useCurrentQuery();
 
+  console.log(data)
   const [profile, setProfile] = useState({
     id: data.id,
     about_me: data.about_me,
@@ -39,7 +40,9 @@ export const About = () => {
   };
 
   return (
-    <div className="flex-1 rounded-lg bg-white p-8 shadow-xl">
+      <>
+          {data && (
+      <div className="flex-1 rounded-lg bg-white p-8 shadow-xl">
       <div className="flex items-center justify-between">
         <h4 className="text-xl font-bold text-gray-900">О себе</h4>
         <div className="flex gap-5">
@@ -65,6 +68,7 @@ export const About = () => {
       ) : (
         <p className="mt-2 text-gray-700">{user.about_me}</p>
       )}
-    </div>
+    </div>)}
+    </>
   );
 };

@@ -72,7 +72,7 @@ export const Form = ({ type }) => {
 
   return (
     <>
-      <main className="m-auto min-h-[70vh] max-w-screen-xl px-6 pt-10">
+      <main className="m-auto min-h-[70vh] max-w-screen-xl px-6 pt-10 mb-20">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="m-auto mt-2 flex max-w-lg flex-col gap-4"

@@ -28,7 +28,7 @@ const AboutUs = () => {
           <img
             src="https://i.imgur.com/HVBwk5J.jpg"
             alt=""
-            className="w-full rounded-xl lg:rounded-bl-[15rem]"
+            className="w-full rounded-xl lg:rounded-bl-[15rem] max-h-[600px]"
           />
           <div className="absolute inset-0 z-20 rounded-xl bg-[#597F9B] opacity-50 lg:rounded-bl-[15rem]" />
           <button className="absolute z-30 flex items-center justify-center text-center" onClick={() => setPlay(true)}>
@@ -41,7 +41,7 @@ const AboutUs = () => {
         ) : (
           <iframe
           className="w-full aspect-video lg:rounded-bl-[15rem]
-          lg:hover:rounded-bl-xl rounded-xl transition-all"
+          lg:hover:rounded-bl-xl rounded-xl transition-all max-h-[600px]"
           src="https://www.youtube.com/embed/1fueZCTYkpA?si=SHK7eLXT-IQ2Pfy-"
           title="промо"
           frameBorder="0"

@@ -1,10 +1,10 @@
 import { Layout } from '@components/layout';
 import { useGetOneQuery } from '@services/events/eventsQuery';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import dayjs from 'dayjs';
 import Comment from '@components/comment';
 import ButtonShared from '@components/button-shared'
-import Header from '@components/landing/header';
+import Header from '@components/header';
 
 export const EventPage = () => {
   const params = useParams();
@@ -115,13 +115,13 @@ export const EventPage = () => {
                     </dl>
                   </div>
                   <div className="pt-4 xl:pt-8">
-                    <a
+                    <Link
                       className="uppercase text-primary-500"
                       aria-label="Назад"
-                      href="/events"
+                      to="/events"
                     >
                       ← ОБРАТНО
-                    </a>
+                    </Link>
                   </div>
                 </footer>
               </div>

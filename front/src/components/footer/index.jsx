@@ -28,9 +28,9 @@ const Footer = () => {
           </div>
 
           <div className="mb-14 mt-28 grid grid-cols-2 justify-between gap-4 md:flex">
-            <div>
+            <div className="w-full sm:w-auto">
               <h4 className="text-3xl">Зарзар</h4>
-              <p className="mt-2 whitespace-nowrap md:mt-4">
+              <p className="mt-2 md:mt-4">
                 Для поиска новых знакомств и увлекательного времяпровождение
               </p>
             </div>

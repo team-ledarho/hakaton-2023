@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "server-hakaton",
+      "script": "yarn",
+      "args": "run start",
+      "watch": false,
+      "cron_restart": "0 0 * * *",
+      "restart_delay": 2000,
+      "ignore_watch": ["node_modules", "*.json", "public"]
+    }
+  ]
+}

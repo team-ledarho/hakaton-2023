@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import SelectLanguage from '@components/language';
 import { useTranslation } from 'react-i18next';
-import { selectorUser } from '../../../services/slices/authSlice';
+import { selectorUser } from '@services/slices/authSlice';
 import { useSelector } from 'react-redux';
-import { useCurrentQuery } from '../../../services/auth/authQuery';
+import { useCurrentQuery } from '@services/auth/authQuery';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const user = useSelector(selectorUser);
   const { data } = useCurrentQuery();
-  console.log(data, 'hg');
 
   const { t } = useTranslation();
 

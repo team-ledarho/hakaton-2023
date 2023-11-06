@@ -1,10 +1,10 @@
 import { Layout } from '@components/layout';
 import Strip from '@components/landing/strip';
 import Technologies from '@components/landing/Technologies';
-import Footer from '@components/landing/footer';
+import Footer from '@components/footer';
+import Header from '@components/header';
 import Partners from '@components/landing/Partners';
 import AboutUs from '@components/landing/aboutUs';
-import Header from '@components/landing/header';
 
 export const HomePage = () => {
   const questions = [

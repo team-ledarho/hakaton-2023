@@ -1,41 +1,68 @@
-import { useState, useEffect, useMemo } from 'react';
-import { useGetAllEventsQuery } from '@services/events/eventsQuery';
+import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useGetEventsQuery } from '@services/events/eventsQuery';
 import dayjs from 'dayjs';
 import { debounce } from 'lodash';
 import { Layout } from '@components/layout';
 import { Users } from '@components/icons';
 import ScrollToTopButton from '@components/scroll-up';
 import { useNavigate } from 'react-router-dom';
-import Header from '@components/landing/header';
+import Header from '@components/header';
 
 export const Events = () => {
-  const { data } = useGetAllEventsQuery();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [cityFilter, setCityFilter] = useState('');
   const [dateFilter, setDateFilter] = useState('');
   const [formatFilter, setFormatFilter] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const debouncedSearch = debounce((value) => setSearchQuery(value), 300); // Debounce the search input
+  const { data, error, refetch } = useGetEventsQuery(currentPage);
+
+  const debouncedSearch = debounce((value) => setSearchQuery(value), 300);
+
+  const [events, setEvents] = useState([]);
+  const [hasMoreData, setHasMoreData] = useState(true);
+
+  const appendEvents = useCallback((newEvents) => {
+    setEvents((prevEvents) => [...prevEvents, ...newEvents]);
+  }, []);
+
+  useEffect(() => {
+    if (data && data.data) {
+      if (data.data.length === 0) {
+        setHasMoreData(false);
+      } else {
+        appendEvents(data.data);
+      }
+    }
+  }, [data, appendEvents]);
 
   const filteredEvents = useMemo(() => {
-    return data?.data.filter((event) => {
+    if (error) {
+      return [];
+    }
+
+    return events.filter((event) => {
       const eventDate = dayjs(event.attributes.start_date).format('YYYY-MM-DD');
       return (
-        event.attributes.name
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase()) &&
+        event.attributes.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
         (!cityFilter || event.attributes.location === cityFilter) &&
         (!dateFilter || eventDate === dateFilter) &&
         (!formatFilter || event.attributes.format === formatFilter)
       );
     });
-  }, [data, searchQuery, cityFilter, dateFilter, formatFilter]);
+  }, [events, searchQuery, cityFilter, dateFilter, formatFilter, error]);
+
+  const moreEvents = () => {
+    if (hasMoreData) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
 
   useEffect(() => {
-    // Вы можете добавить обработчик события здесь, если это необходимо
-  }, [cityFilter, dateFilter, formatFilter]);
-
+    refetch();
+  }, [cityFilter, dateFilter, formatFilter, currentPage, refetch]);
+  
   return (
     <Layout>
       <Header />
@@ -171,11 +198,11 @@ export const Events = () => {
               filteredEvents.map((event, index) => (
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
                 <div
-                  className="mx-auto mt-10 h-full max-w-6xl cursor-pointer"
+                  className="mr-auto mt-10 h-full max-w-6xl cursor-pointer w-full"
                   key={index}
                   onClick={() => navigate(`/events/${event.attributes.slug}`)}
                 >
-                  <article className="mx-auto flex flex-col items-center gap-4 md:max-w-none">
+                  <article className="flex flex-col gap-4 md:max-w-none">
                     <figure className="relative">
                       <img
                         className="h-[300px] w-full rounded-lg object-cover"
@@ -221,7 +248,7 @@ export const Events = () => {
                       </p>
                       <footer className="mt-4 flex flex-row items-center">
                         <Users className="h-6 w-6" />
-                        <span className="ml-4 mr-2 text-gray-700">230 - </span>
+                        <span className="ml-4 mr-2 text-gray-700">0 - </span>
                         <span className="text-gray-500">
                           {dayjs(event.attributes.start_date).format(
                             'MMMM D, HH:mm',
@@ -232,6 +259,7 @@ export const Events = () => {
                   </article>
                 </div>
               ))}
+              <button className='w-full mt-20 p-4 bg-brand-dark rounded-lg uppercase text-white hover:bg-brand-green transition-colors duration-200' onClick={moreEvents}>Ещё</button>
           </div>
           <div className="mt-10 hidden max-w-[30%] md:block">
             <div className="sticky top-5 w-full">

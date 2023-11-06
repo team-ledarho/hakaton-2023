@@ -46,7 +46,7 @@ const Cookie = () => {
                       ></path>
                     </svg>
                   </span>
-                  <p className="ml-3 truncate font-medium text-white">
+                  <p className="ml-3 truncate font-medium text-white whitespace-normal">
                     <span className="inline">
                       Продолжая использовать данный сайт, вы соглашаетесь на
                       использование файлов Cookie

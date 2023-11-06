@@ -1,7 +1,6 @@
 import { Layout } from '@components/layout';
 import Strip from '@components/landing/strip';
 import Technologies from '@components/landing/Technologies';
-import Footer from '@components/footer';
 import Header from '@components/header';
 import Partners from '@components/landing/Partners';
 import AboutUs from '@components/landing/aboutUs';
@@ -195,10 +194,10 @@ export const HomePage = () => {
 
           <div className="grid grid-rows-[auto_1fr_auto] rounded-xl bg-white p-8">
             <header>
-              <h3 className="text-4xl font-bold text-secondary-700 md:text-5xl">
+              <h3 className="text-3xl font-bold text-secondary-700 md:text-5xl">
                 База
               </h3>
-              <p className="mt-2 text-3xl font-bold text-secondary-500 md:text-4xl">
+              <p className="mt-2 text-2xl font-bold text-secondary-500 md:text-4xl">
                 бесплатно
               </p>
             </header>
@@ -268,7 +267,7 @@ export const HomePage = () => {
           className="m-auto max-w-screen-xl px-6 py-24 md:mb-32"
           id="faq"
         >
-          <h2 className="mb-10 text-4xl font-bold md:text-6xl">
+          <h2 className="mb-10 text-3xl font-bold md:text-6xl">
             <span className="text-secondary-700"> ОСТАЛИСЬ </span>
             <span className="rounded-lg bg-brand-green px-4 text-white">
               {' '}
@@ -278,8 +277,8 @@ export const HomePage = () => {
 
           {questions.map((question, index) => (
             <details key={index} className="mt-3 rounded-xl bg-white">
-              <summary className="flex cursor-pointer select-none items-center justify-between gap-4 px-10 py-6 text-xl font-bold text-secondary-600">
-                {question.title}
+              <summary className="flex cursor-pointer select-none items-center justify-between gap-4 px-4 py-6 text-xl font-bold text-secondary-600 sm:px-10">
+                <p className='text-xs sm:text-xl'>{question.title}</p>
                 <div className="arrow rotate-180 transition-transform">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -292,13 +291,12 @@ export const HomePage = () => {
                   </svg>
                 </div>
               </summary>
-              <p className="px-10 pb-12 text-secondary-500">
+              <p className="px-4 sm:px-10 pb-12 text-secondary-500">
                 {question.answer}
               </p>
             </details>
           ))}
         </section>
-        <Footer />
       </main>
     </Layout>
   );

@@ -15,7 +15,7 @@ const AboutUs = () => {
           </h2>
         </div>
 
-        <h2 className="mt-4 text-4xl font-bold text-secondary-700 md:text-6xl md:font-medium">
+        <h2 className="mt-4 text-2xl font-bold text-secondary-700 md:text-6xl md:font-medium">
           <span className="rounded-md bg-brand-green px-2 text-white md:px-4">
             РАЗВИВАЕТСЯ
           </span>{' '}

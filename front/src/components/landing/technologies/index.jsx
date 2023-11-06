@@ -11,13 +11,13 @@ const Technologies = () => {
           </div>
           <h2
             className="rounded-md bg-brand-green px-2 py-1
-      text-4xl font-bold text-white md:text-6xl"
+      text-2xl font-bold text-white md:text-6xl"
           >
             РЕВИЗОРЫ КАЧЕСТВА
           </h2>
         </div>
-        <h2 className="mt-4 text-4xl font-bold text-secondary-700 md:text-6xl">
-          НАШИ АДМИНИСТРАТОРЫ СЛЕДЯТ ЗА КАЧЕСТВОМ И БЕЗОПАСНОСТЬЮ
+        <h2 className="mt-4 text-2xl font-bold text-secondary-700 md:text-6xl">
+          МЫ СЛЕДИМ ЗА КАЧЕСТВОМ И БЕЗОПАСНОСТЬЮ
         </h2>
 
         <div className="mt-16 flex flex-col gap-5">
@@ -41,11 +41,11 @@ const Technologies = () => {
               </svg>
             </div>
             <div
-              className="h-fit place-self-center pl-2 text-xs md:col-span-7
+              className="h-fit self-center pl-2 text-xs md:col-span-7
         md:col-start-4 md:w-full md:text-xl"
             >
-              ДОСТУП К ОРГАНИЗАЦИИ МЕРОПРИЯТИЯ ВНУТРИ НАШЕГО СЕРВИСА
-              <span className="font-bold"> ПРОХОДИТ ТЩАТЕЛЬНУЮ ПРОВЕРКУ </span>
+              МЕРОПРИЯТИЯ
+              <span className="font-bold"> ПРОХОДЯТ ТЩАТЕЛЬНУЮ ПРОВЕРКУ </span>
             </div>
           </div>
 
@@ -69,7 +69,7 @@ const Technologies = () => {
               </svg>
             </div>
             <div
-              className="h-fit place-self-center pl-2 text-xs md:col-span-7 md:col-start-4
+              className="h-fit self-center pl-2 text-xs md:col-span-7 md:col-start-4
         md:w-full md:text-xl"
             >
               МЫ <span className="font-bold">НЕ ХРАНИМ</span> ВАШИ ЛИЧНЫЕ
@@ -96,7 +96,7 @@ const Technologies = () => {
               </svg>
             </div>
             <div
-              className="h-fit place-self-center pl-2 text-xs md:col-span-7 md:col-start-4
+              className="h-fit self-center pl-2 text-xs md:col-span-7 md:col-start-4
         md:w-full md:text-xl"
             >
               АКТИВНО РАЗВИВАЕМСЯ И СПОСОБСТВУЕМ К ОРГАНИЗАЦИИ

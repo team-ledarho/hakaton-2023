@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { selectorUser } from '@services/slices/authSlice';
 import { useSelector } from 'react-redux';
 import { useCurrentQuery } from '@services/auth/authQuery';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -142,17 +143,17 @@ const Header = () => {
                   </button>
                 </div>
                 <div className="bold absolute bottom-8 text-5xl transition-colors">
+                <Link
+                      className="block pb-6 hover:text-gray-500"
+                      to="/events"
+                    >
+                      Мероприятия
+                    </Link>
                   <a
                     className="block pb-6 hover:text-gray-500"
                     onClick={toggleMenu}
                     href="/#aboutUs"
                   >
-                    <a
-                      className="block pb-6 hover:text-gray-500"
-                      href="/events"
-                    >
-                      Мероприятия
-                    </a>
                     Про нас
                   </a>
                   <a

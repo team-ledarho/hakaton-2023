@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "client-hakaton",
+      "script": "yarn",
+      "args": "run preview --host",
+      "watch": false,
+      "ignore_watch": ["node_modules", "*.json", "public"]
+    }
+  ]
+}

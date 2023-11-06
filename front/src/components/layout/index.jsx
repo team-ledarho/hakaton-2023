@@ -1,6 +1,4 @@
-import Header from '@components/landing/header';
-import { Auth } from '@services/feature/auth.feature';
-import Cookie from '../cookie';
+import Cookie from '@components/cookie';
 
 export const Layout = ({ children }) => {
   return (

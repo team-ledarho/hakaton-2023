@@ -4,7 +4,7 @@ import { PersonalInfo } from '@components/personal/info';
 import { About } from '@components/personal/about';
 import { Subscribers } from '@components/personal/subscribers';
 import { useCurrentQuery } from '@services/auth/authQuery';
-import Header from '@components/landing/header';
+import Header from '@components/header';
 
 export const Personal = () => {
   const { data } = useCurrentQuery();

@@ -2,9 +2,9 @@ import { api } from '../api.service';
 
 export const eventsApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getAllEvents: builder.query({
-      query: () => ({
-        url: '/events-api?populate=*',
+    getEvents: builder.query({
+      query: (page) => ({
+        url: `/events-api?pagination[pageSize]=8&pagination[page]=${page}&populate=*`,
         method: 'GET',
       }),
     }),
@@ -24,8 +24,8 @@ export const eventsApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetAllEventsQuery, useGetOneQuery } = eventsApi;
+export const { useGetEventsQuery, useGetOneQuery } = eventsApi;
 
 export const {
-  endpoints: { getAllEvents, getOne },
+  endpoints: { getEvents, getOne },
 } = eventsApi;

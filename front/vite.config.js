@@ -16,6 +16,12 @@ export default defineConfig({
       dest: path.join(__dirname, 'dist', '~partytown'),
     }),
   ],
+  server: {
+    port: 1338,
+  },
+  preview: {
+    port: 1338,
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, '/src'),

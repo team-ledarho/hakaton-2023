@@ -11,7 +11,7 @@ export const eventsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(
-      eventsApi.endpoints.getAllEvents.matchFulfilled,
+      eventsApi.endpoints.getEvents.matchFulfilled,
       (state, action) => {
         state.events = action.payload;
       },

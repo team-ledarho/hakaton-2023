@@ -62,7 +62,7 @@ const Comment = () => {
                 </div>
 
                 <span className="block text-sm text-gray-500">
-                Основано на 27 отзывах
+                  Основано на 27 отзывах
                 </span>
 
                 <div className="my-5 flex flex-col gap-2 border-b border-t py-5">
@@ -192,13 +192,18 @@ const Comment = () => {
                   </div>
 
                   <p className="text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint quod minima voluptatibus assumenda harum est corporis, nobis alias tenetur id eaque esse atque illo. Amet molestias itaque ratione sit aperiam, enim saepe sint.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sint quod minima voluptatibus assumenda harum est corporis,
+                    nobis alias tenetur id eaque esse atque illo. Amet molestias
+                    itaque ratione sit aperiam, enim saepe sint.
                   </p>
                 </div>
 
                 <div className="flex flex-col gap-3 py-4 md:py-8">
                   <div>
-                    <span className="block text-sm font-bold">Мохьмад Чергизбиев</span>
+                    <span className="block text-sm font-bold">
+                      Мохьмад Чергизбиев
+                    </span>
                     <span className="block text-sm text-gray-500">
                       Июнь 21, 2021
                     </span>
@@ -252,7 +257,10 @@ const Comment = () => {
                   </div>
 
                   <p className="text-gray-600">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, voluptates nostrum! Vero eius error laboriosam saepe numquam voluptatibus temporibus voluptatem dolorem quia.
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Dignissimos, voluptates nostrum! Vero eius error laboriosam
+                    saepe numquam voluptatibus temporibus voluptatem dolorem
+                    quia.
                   </p>
                 </div>
 
@@ -314,7 +322,8 @@ const Comment = () => {
                   </div>
 
                   <p className="text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, et?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Mollitia, et?
                   </p>
                 </div>
               </div>

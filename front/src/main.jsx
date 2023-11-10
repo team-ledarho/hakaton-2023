@@ -76,8 +76,6 @@ i18next
 root.render(
   <Provider store={store}>
     <RouterProvider router={router} />
-    <Toaster 
-      position="bottom-center"
-    />
+    <Toaster position="bottom-center" />
   </Provider>,
 );

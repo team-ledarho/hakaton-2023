@@ -3,16 +3,19 @@ import { useGetOneQuery } from '@services/events/eventsQuery';
 import { Link, useParams } from 'react-router-dom';
 import dayjs from 'dayjs';
 import Comment from '@components/comment';
-import ButtonShared from '@components/button-shared'
+import ButtonShared from '@components/button-shared';
 import Header from '@components/header';
+import { Loader } from '@components/loader';
 
 export const EventPage = () => {
   const params = useParams();
-  const { data } = useGetOneQuery(params.slug);
+  const { data, isLoading } = useGetOneQuery(params.slug);
+
+  if (isLoading) return <Loader />;
 
   return (
     <Layout>
-      <Header/>
+      <Header />
       {data && (
         <section className="relative mx-auto mb-20 max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
           <article>

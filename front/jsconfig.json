@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@components/*": [
+        "./components/*"
+      ],
+      "@ui/*": [
+        "./components/common/ui/*"
+      ],
+      "@pages/*": [
+        "./pages/*"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@api/*": [
+        "./api/*"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ],
+    }
+  }
+}

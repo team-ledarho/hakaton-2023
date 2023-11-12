@@ -24,14 +24,14 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, '/src'),
-      '@components': resolve(__dirname, '/src/components'),
-      '@hooks': resolve(__dirname, '/src/hooks'),
-      '@routes': resolve(__dirname, '/src/routes'),
-      '@services': resolve(__dirname, '/src/services'),
-      '@utils': resolve(__dirname, '/src/utils'),
-      '@pages': resolve(__dirname, '/src/pages'),
-      '@paths': resolve(__dirname, '/src/paths'),
+      '@': resolve(__dirname, 'src'),
+      '@components': resolve(__dirname, 'src/components'),
+      '@hooks': resolve(__dirname, 'src/hooks'),
+      '@routes': resolve(__dirname, 'src/routes'),
+      '@services': resolve(__dirname, 'src/services'),
+      '@utils': resolve(__dirname, 'src/utils'),
+      '@pages': resolve(__dirname, 'src/pages'),
+      '@paths': resolve(__dirname, 'src/paths'),
     },
   },
   test: {

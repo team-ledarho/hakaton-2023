@@ -7,6 +7,10 @@ import { Users } from '@components/icons';
 import ScrollToTopButton from '@components/scroll-up';
 import { useNavigate } from 'react-router-dom';
 import Header from '@components/header';
+import { Calendar } from '@components/icons';
+import { onOpen } from '@services/slices/popupSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectorIsOpen } from '@services/slices/popupSlice';
 
 export const Events = () => {
   const navigate = useNavigate();
@@ -18,6 +22,8 @@ export const Events = () => {
 
   const { data, error, refetch } = useGetEventsQuery(currentPage);
 
+  const dispatch = useDispatch()
+
   const debouncedSearch = debounce((value) => setSearchQuery(value), 300);
 
   const [events, setEvents] = useState([]);
@@ -26,6 +32,10 @@ export const Events = () => {
   const appendEvents = useCallback((newEvents) => {
     setEvents((prevEvents) => [...prevEvents, ...newEvents]);
   }, []);
+
+  const onModal = () => {
+    dispatch(onOpen())
+  }
 
   useEffect(() => {
     if (data && data.data) {
@@ -62,7 +72,7 @@ export const Events = () => {
   useEffect(() => {
     refetch();
   }, [cityFilter, dateFilter, formatFilter, currentPage, refetch]);
-  
+
   return (
     <Layout>
       <Header />
@@ -200,28 +210,33 @@ export const Events = () => {
                 <div
                   className="mr-auto mt-10 h-full max-w-6xl cursor-pointer w-full"
                   key={index}
-                  onClick={() => navigate(`/events/${event.attributes.slug}`)}
                 >
                   <article className="flex flex-col gap-4 md:max-w-none">
                     <figure className="relative">
-                      <img
-                        className="h-[300px] w-full rounded-lg object-cover"
-                        src={
-                          !event.attributes.photo.data
-                            ? `https://preview.cruip.com/open-pro/images/blog-post-01.jpg`
-                            : import.meta.env.VITE_STRAPI_URL +
+                      <div className='relative'>
+                        <img
+                          className="h-[300px] w-full rounded-lg object-cover"
+                          src={
+                            !event.attributes.photo.data
+                              ? `https://preview.cruip.com/open-pro/images/blog-post-01.jpg`
+                              : import.meta.env.VITE_STRAPI_URL +
                               event.attributes.photo.data?.attributes.url
-                        }
-                        width="540"
-                        height="303"
-                        alt="Blog post"
-                      />
+                          }
+                          width="540"
+                          height="303"
+                          alt="Blog post"
+                          onClick={() => navigate(`/events/${event.attributes.slug}`)}
+                        />
+                        <div onClick={onModal} className='absolute cursor-pointer top-2 right-2 rounded-lg bg-white w-12 h-12'>
+                          <Calendar />
+                        </div>
+                      </div>
                     </figure>
                     <div>
                       <header>
                         <div className="mb-3">
                           <ul className="-m-1 flex flex-wrap text-xs font-medium">
-                            <li className="m-1">
+                            <li onClick={() => navigate(`/events/${event.attributes.slug}`)} className="m-1">
                               <a
                                 className="inline-flex rounded-full bg-purple-600 px-3 py-1 text-center text-gray-100 transition duration-150 ease-in-out hover:bg-purple-700"
                                 href="#0"
@@ -259,7 +274,7 @@ export const Events = () => {
                   </article>
                 </div>
               ))}
-              <button className='w-full mt-20 p-4 bg-brand-dark rounded-lg uppercase text-white hover:bg-brand-green transition-colors duration-200' onClick={moreEvents}>Ещё</button>
+            <button className='w-full mt-20 p-4 bg-brand-dark rounded-lg uppercase text-white hover:bg-brand-green transition-colors duration-200' onClick={moreEvents}>Ещё</button>
           </div>
           <div className="mt-10 hidden max-w-[30%] md:block">
             <div className="sticky top-5 w-full">

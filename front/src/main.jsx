@@ -16,6 +16,7 @@ import localeData from 'dayjs/plugin/localeData';
 import ruLocale from 'dayjs/locale/ru';
 import dayjs from 'dayjs';
 import { Toaster } from 'react-hot-toast';
+import { Modal } from './components/modal';
 
 dayjs.extend(customParseFormat);
 dayjs.extend(localeData);
@@ -75,8 +76,9 @@ i18next
 
 root.render(
   <Provider store={store}>
+    <Modal />
     <RouterProvider router={router} />
-    <Toaster 
+    <Toaster
       position="bottom-center"
     />
   </Provider>,

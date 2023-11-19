@@ -15,9 +15,14 @@
     "format": "prettier --write . --config prettier.config.js"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@ericz1803/react-google-calendar": "^4.3.1",
+    "@react-oauth/google": "^0.11.1",
     "@reduxjs/toolkit": "^1.9.7",
     "@supabase/auth-helpers-react": "^0.4.2",
     "@supabase/supabase-js": "^2.38.4",
+    "gapi-script": "^1.2.0",
+    "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",

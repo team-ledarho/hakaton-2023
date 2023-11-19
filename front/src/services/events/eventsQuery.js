@@ -2,6 +2,7 @@ import { api } from '../api.service';
 
 export const eventsApi = api.injectEndpoints({
   endpoints: (builder) => ({
+    /*
     getEvents: builder.query({
       query: (page) => ({
         url: `/events-api?pagination[pageSize]=8&pagination[page]=${page}&populate=*`,
@@ -14,13 +15,23 @@ export const eventsApi = api.injectEndpoints({
         method: 'GET',
       }),
     }),
-    // authOnEvent: builder.mutation({
-    //   query: (userData) => ({
-    //     url: '/auth/local/register',
-    //     method: 'POST',
-    //     body: userData,
-    //   }),
-    // }),
+    authOnEvent: builder.mutation({
+      query: (userData) => ({
+        url: '/auth/local/register',
+        method: 'POST',
+        body: userData,
+      }),
+    }),
+    */
+    getEvents: builder.query({
+      query: () => ({
+        url: `https://www.awdgoogleapis.com/calendar/v3/calendars/${import.meta.env.VITE_STRAPI_CALENDAR_ID}/events`,
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_BEARER_CALENDAR_TOKEN}`,
+        },
+      }),
+    }),
   }),
 });
 

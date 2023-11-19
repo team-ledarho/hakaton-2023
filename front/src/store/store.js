@@ -11,7 +11,7 @@ export const store = configureStore({
   reducer: {
     [api.reducerPath]: api.reducer,
     [authApi.reducerPath]: authApi.reducer,
-    [eventsApi.reducerPath]: eventsApi.reducer,
+    // [eventsApi.reducerPath]: eventsApi.reducer,
     auth,
     events,
     popup

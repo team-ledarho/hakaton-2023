@@ -1,5 +1,5 @@
 import { Layout } from '@components/layout';
-import { useGetOneQuery } from '@services/events/eventsQuery';
+// import { useGetOneQuery } from '@services/events/eventsQuery';
 import { Link, useParams } from 'react-router-dom';
 import dayjs from 'dayjs';
 import Comment from '@components/comment';
@@ -8,7 +8,7 @@ import Header from '@components/header';
 
 export const EventPage = () => {
   const params = useParams();
-  const { data } = useGetOneQuery(params.slug);
+  // const { data } = useGetOneQuery(params.slug);
 
   return (
     <Layout>
@@ -20,7 +20,7 @@ export const EventPage = () => {
               <header className="pt-6 xl:pb-6">
                 <div className="text-center">
                   <p className="text-base font-medium leading-6 text-black">
-                    {dayjs(data.data[0].attributes.start_date).format(
+                    {dayjs(data?.data[0].attributes.start_date).format(
                       'MMMM D, HH:mm',
                     )}
                   </p>

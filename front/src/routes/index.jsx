@@ -8,6 +8,7 @@ import { Settings } from '@pages/settings';
 import { EventPage } from '@pages/event-page';
 import { Events } from '@pages/events';
 import { Auth } from '@services/feature/auth.feature';
+import { GoogleCalendar } from '@pages/calendar';
 
 export const router = createBrowserRouter([
   {
@@ -45,5 +46,9 @@ export const router = createBrowserRouter([
   {
     path: paths.eventpage,
     element: <EventPage />,
+  },
+  {
+    path: paths.calendar,
+    element: <GoogleCalendar />,
   },
 ]);

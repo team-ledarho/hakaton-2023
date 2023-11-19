@@ -16,7 +16,7 @@ import localeData from 'dayjs/plugin/localeData';
 import ruLocale from 'dayjs/locale/ru';
 import dayjs from 'dayjs';
 import { Toaster } from 'react-hot-toast';
-import { Modal } from './components/modal';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 dayjs.extend(customParseFormat);
 dayjs.extend(localeData);
@@ -76,10 +76,11 @@ i18next
 
 root.render(
   <Provider store={store}>
-    <Modal />
-    <RouterProvider router={router} />
-    <Toaster
-      position="bottom-center"
-    />
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_STRAPI_GOOGLE_CLIENT_ID}>
+      <RouterProvider router={router} />
+      <Toaster
+        position="bottom-center"
+      />
+    </GoogleOAuthProvider>
   </Provider>,
 );

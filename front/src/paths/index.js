@@ -6,4 +6,5 @@ export const paths = {
   settings: '/personal/settings',
   events: '/events',
   eventpage: '/events/:slug',
+  calendar: "/calendar"
 };
